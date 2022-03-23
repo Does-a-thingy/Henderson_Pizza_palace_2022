@@ -1,10 +1,10 @@
 #Importing tkinter to use for creating a GUI
-import tkinter as tk
+from tkinter import *
 
 #Dictionary to contain all of the information from the user
 order = {'delivery': False, 'name': '', 'address': '', 'phone': ''}
 
-window = tk.Tk()
+window = Tk()
 
 window.mainloop()
 
