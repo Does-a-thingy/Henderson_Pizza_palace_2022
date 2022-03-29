@@ -9,8 +9,10 @@ window = Tk()
 top = Frame(window)
 buttons = Frame(window)
 
-#set up list variable
-labeltexts = ['Would you like delivery or pick up?', 'What name is this order under?', '']
+#set up list variables
+labeltexts = ['Would you like delivery or pick up?', 'What name is this order under?', 'Where is this delivered to?']
+button1texts = ['Delivery', '']
+button2texts = ['Pick up', '']
 
 #set up text variables
 labelling1 = StringVar()
