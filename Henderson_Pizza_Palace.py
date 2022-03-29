@@ -7,7 +7,8 @@ order = {'delivery': False, 'name': '', 'address': '', 'phone': ''}
 #set up the tk variables
 window = Tk()
 top = Frame(window)
-buttons = Frame(window)
+deliveryframe = Frame(window)
+nameframe = Frame(window)
 
 #set up list variables
 labeltexts = ['Would you like delivery or pick up?', 'What name is this order under?', 'Where is this delivered to?']
@@ -37,18 +38,30 @@ def update_deliver():
     order['delivery'] = True
     update_window()
 
+def address_update():
+    
+
 #set up for the window
 top.grid(row=0, column=0, padx=10, pady=10)
-buttons.grid(row=1, column=0, padx=10, pady=10)
+buttons.grid(row=1, column=0, padx=10, pady=10, sticky='NSEW')
+nameframe.grid(row=2, column=0, padx=10, pady=10, sticky='NSEW')
 
 label1 = Label(top, textvariable = labelling1)
 label1.grid(row=0, column=0, padx=10, pady=3)
 
-deliverbutton = Button(buttons, text = 'Delivery', command=update_deliver)
+#delivery or pick up buttons
+deliverbutton = Button(deliveryframe, textvariable=button1texts, command=update_deliver)
 deliverbutton.grid(row=0, column=0, padx=10, pady=3, columnspan=2, sticky='WE')
 
-pickupbutton = Button(buttons, text = 'Pick up', command=update_window)
+pickupbutton = Button(deliveryframe, textvariable=button2texts, command=update_window)
 pickupbutton.grid(row=1, column=0, padx=10, pady=3, columnspan=2, sticky='WE')
+
+#getting name entry and submit button
+name = DoubleVar()
+name.set('')
+
+name_label = Label(nameframe, text='Name:')
+name_lavel.grid(row=0)
 
 #execute the set up
 window.mainloop()
