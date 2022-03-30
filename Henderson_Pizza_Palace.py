@@ -24,6 +24,7 @@ buttoning1 = StringVar()
 buttoning1.set(button1texts[0])
 buttoning2 = StringVar()
 buttoning2.set(button2texts[0])
+
 #set up counting variables
 x = 1
 part = 0
@@ -38,6 +39,7 @@ def update_window():
         labelling1.set(labeltexts[part])
         hide_widget(deliverbutton)
         hide_widget(pickupbutton)
+        hide_widget(deliveryframe)
     elif x == 2:
         print('second')
 
@@ -49,7 +51,7 @@ def address_update():
     print('b')
 
 def hide_widget(widget):
-    widget.pack_forget()
+    widget.grid_forget()
 #set up for the window
 top.grid(row=0, column=0, padx=10, pady=10)
 deliveryframe.grid(row=1, column=0, padx=10, pady=10, sticky='NSEW')
@@ -75,6 +77,6 @@ name_label.grid(row=0, column=0, padx=10, pady=3)
 name_entry = Entry(nameframe, textvariable=name)
 name_entry.grid(row=0, column=1, padx=10, pady=3, sticky='WE')
 
-nameframe.pack_forget()
+nameframe.grid_forget()
 #execute the set up
 window.mainloop()
