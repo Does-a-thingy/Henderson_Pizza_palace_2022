@@ -45,6 +45,7 @@ def update_window():
     elif x == 2:
         print('second')
         hide_widget(nameframe)
+
     elif x == 3:
         print('third')
 
@@ -58,11 +59,11 @@ def address_update():
 def hide_widget(widget):
     widget.grid_forget()
 
-def grid_widget(widget, Row, Column, x=10, y=3):
+def grid_widget(widget, Row=0, Column=0, x=10, y=3):
     widget.grid(row=Row, column=Column, padx=x, pady=y, sticky='NSEW')
 #set up for the window
-top.grid(row=0, column=0, padx=10, pady=10)
-deliveryframe.grid(row=1, column=0, padx=10, pady=10, sticky='NSEW')
+grid_widget(top, y=10)
+grid_widget(deliveryframe, 1, 0, 10, 10)
 
 label1 = Label(top, textvariable = labelling1)
 label1.grid(row=0, column=0, padx=10, pady=3)
