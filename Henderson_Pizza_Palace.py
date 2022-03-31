@@ -40,6 +40,8 @@ def update_window():
         hide_widget(deliverbutton)
         hide_widget(pickupbutton)
         hide_widget(deliveryframe)
+        grid_widget(name_label, 0, 0, 10, 3)
+        grid_widget(name_entry, 0, 1, 10, 3)
     elif x == 2:
         print('second')
 
@@ -52,6 +54,9 @@ def address_update():
 
 def hide_widget(widget):
     widget.grid_forget()
+
+def grid_widget(widget, Row, Column, x=10, y=3):
+    widget.grid(row=Row, column=Column, padx=x, pady=y, sticky='NWES')
 #set up for the window
 top.grid(row=0, column=0, padx=10, pady=10)
 deliveryframe.grid(row=1, column=0, padx=10, pady=10, sticky='NSEW')
@@ -72,11 +77,7 @@ name = DoubleVar()
 name.set('')
 
 name_label = Label(nameframe, text='Name:')
-name_label.grid(row=0, column=0, padx=10, pady=3)
 
 name_entry = Entry(nameframe, textvariable=name)
-name_entry.grid(row=0, column=1, padx=10, pady=3, sticky='WE')
-
-nameframe.grid_forget()
 #execute the set up
 window.mainloop()
