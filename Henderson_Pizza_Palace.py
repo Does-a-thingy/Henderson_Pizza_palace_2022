@@ -25,25 +25,28 @@ buttoning1.set(button1texts[0])
 buttoning2 = StringVar()
 buttoning2.set(button2texts[0])
 
-#set up counting variables
-x = 1
+#set up argument variables
+x = 0
 part = 0
 
 # set up the functions
 def update_window():
     global x, part
+    part += 1
+    x += 1
     if x == 1:
         print('first')
-        x += 1
-        part += 1
         labelling1.set(labeltexts[part])
-        hide_widget(deliverbutton)
-        hide_widget(pickupbutton)
         hide_widget(deliveryframe)
-        grid_widget(name_label, 0, 0, 10, 3)
-        grid_widget(name_entry, 0, 1, 10, 3)
+        grid_widget(nameframe, 1, 0, 10, 10)
+        grid_widget(name_label, 0, 0)
+        grid_widget(name_entry, 0, 1)
+        grid_widget(confirm_button, 1, 0, 10, 10)
     elif x == 2:
         print('second')
+        hide_widget(nameframe)
+    elif x == 3:
+        print('third')
 
 def update_deliver():
     order['delivery'] = True
@@ -56,11 +59,10 @@ def hide_widget(widget):
     widget.grid_forget()
 
 def grid_widget(widget, Row, Column, x=10, y=3):
-    widget.grid(row=Row, column=Column, padx=x, pady=y, sticky='NWES')
+    widget.grid(row=Row, column=Column, padx=x, pady=y, sticky='NSEW')
 #set up for the window
 top.grid(row=0, column=0, padx=10, pady=10)
 deliveryframe.grid(row=1, column=0, padx=10, pady=10, sticky='NSEW')
-nameframe.grid(row=2, column=0, padx=10, pady=10, sticky='NSEW')
 
 label1 = Label(top, textvariable = labelling1)
 label1.grid(row=0, column=0, padx=10, pady=3)
@@ -79,5 +81,7 @@ name.set('')
 name_label = Label(nameframe, text='Name:')
 
 name_entry = Entry(nameframe, textvariable=name)
+
+confirm_button = Button(nameframe, text='Confirm', command=update_window)
 #execute the set up
 window.mainloop()
