@@ -10,12 +10,13 @@ window = Tk()
 window.title('Henderson Pizza Place')
 top = Frame(window)
 deliveryframe = Frame(window)
-nameframe = Frame(window)
+entryframe = Frame(window)
 
 #set up list variables
 labeltexts = ['Would you like delivery or pick up?', 'What name is this order under?', 'Where is this delivered to?']
 button1texts = ['Delivery', '']
 button2texts = ['Pick up', '']
+entry_labels = ['Name:', 'Address:', 'Phone number:']
 
 #set up text variables
 labelling1 = StringVar()
@@ -24,6 +25,8 @@ buttoning1 = StringVar()
 buttoning1.set(button1texts[0])
 buttoning2 = StringVar()
 buttoning2.set(button2texts[0])
+detailentry_labels = StringVar()
+detailentry_labels.set(entry_labels[0])
 
 #set up argument variables
 x = 0
@@ -38,16 +41,14 @@ def update_window():
         print('first')
         labelling1.set(labeltexts[part])
         hide_widget(deliveryframe)
-        grid_widget(nameframe, 1, 0, 10, 10)
-        grid_widget(name_label, 0, 0)
+        grid_widget(entryframe, 1, 0, 10, 10)
+        grid_widget(detail_label, 0, 0)
         grid_widget(name_entry, 0, 1)
         grid_widget(confirm_button, 1, 0, 10, 10)
     elif x == 2:
         print('second')
-        hide_widget(nameframe)
-        grid_widget()
-        grid_widget()
-        grid_widget()
+        hide_widget(name_entry)
+        grid_widget(address_entry, 0, 1)
         update_details(x)
     elif x == 3:
         print('third')
@@ -55,14 +56,12 @@ def update_window():
 def update_details(x):
     global order
     if x == 1:
-        order['delivery'] = True
+        details['delivery'] = True
     elif x == 2:
-        order['name'] = name.get()
+        details['name'] = name.get()
+        print(order['name'])
     elif x == 3:
         print('yeet')
-
-def address_update():
-    print('b')
 
 def hide_widget(widget):
     widget.grid_forget()
@@ -87,15 +86,20 @@ pickupbutton.grid(row=1, column=0, padx=10, pady=3, columnspan=2, sticky='WE')
 name = DoubleVar()
 name.set('')
 
-name_label = Label(nameframe, text='Name:')
+detail_label = Label(entryframe, textvariable=detailentry_labels)
 
-name_entry = Entry(nameframe, textvariable=name)
+name_entry = Entry(entryframe, textvariable=name)
 
-confirm_button = Button(nameframe, text='Confirm', command=update_window)
+confirm_button = Button(entryframe, text='Confirm', command=update_window)
 
-#
+#checking if delivery is true then procedding accordingly
+if order['delivery'] == True:
+    #set up for address gathering
+    address = DoubleVar()
+    address.set('')
 
-
+    address_entry = Entry(entryframe, textvariable=address)
+    detailentry_labels.set(entry_labels[1])
 
 #execute the set up
 window.mainloop()
