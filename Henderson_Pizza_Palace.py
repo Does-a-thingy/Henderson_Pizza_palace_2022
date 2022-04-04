@@ -3,7 +3,7 @@ from tkinter import *
 from tkinter.ttk import *
 
 #Dictionary to contain all of the information from the user
-order = {'delivery': False, 'name': '', 'address': '', 'phone': ''}
+details = {'delivery': False, 'name': '', 'address': '', 'phone': ''}
 
 #set up the tk variables
 window = Tk()
@@ -45,13 +45,21 @@ def update_window():
     elif x == 2:
         print('second')
         hide_widget(nameframe)
-
+        grid_widget()
+        grid_widget()
+        grid_widget()
+        update_details(x)
     elif x == 3:
         print('third')
 
-def update_deliver():
-    order['delivery'] = True
-    update_window()
+def update_details(x):
+    global order
+    if x == 1:
+        order['delivery'] = True
+    elif x == 2:
+        order['name'] = name.get()
+    elif x == 3:
+        print('yeet')
 
 def address_update():
     print('b')
@@ -69,13 +77,13 @@ label1 = Label(top, textvariable = labelling1)
 label1.grid(row=0, column=0, padx=10, pady=3)
 
 #delivery or pick up buttons
-deliverbutton = Button(deliveryframe, textvariable=buttoning1, command=update_deliver)
+deliverbutton = Button(deliveryframe, textvariable=buttoning1, command=update_window)
 deliverbutton.grid(row=0, column=0, padx=10, pady=3, columnspan=2, sticky='WE')
 
 pickupbutton = Button(deliveryframe, textvariable=buttoning2, command=update_window)
 pickupbutton.grid(row=1, column=0, padx=10, pady=3, columnspan=2, sticky='WE')
 
-#getting name entry and submit button
+#setting up the name entry and submit button
 name = DoubleVar()
 name.set('')
 
@@ -84,5 +92,10 @@ name_label = Label(nameframe, text='Name:')
 name_entry = Entry(nameframe, textvariable=name)
 
 confirm_button = Button(nameframe, text='Confirm', command=update_window)
+
+#
+
+
+
 #execute the set up
 window.mainloop()
