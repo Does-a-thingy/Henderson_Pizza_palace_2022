@@ -55,8 +55,11 @@ def update_window():
             detailentry_labels.set(entry_labels[1])
             grid_widget(address_entry, 0, 1)
             detailentry_labels.set('address')
+        else:
+            x += 2
     elif x == 3:
         print('third')
+        update_details(x)
 
 def delivery_command():
     # so that I can update delivery and not if it is pick up
@@ -65,15 +68,18 @@ def delivery_command():
     update_details(x)
 
 def update_details(x):
-    global details, name
+    global details, entered
     if x == 1:
         details['delivery'] = True
-        print(details['delivery'])
     elif x == 2:
-        details['name'] = name
+        details['name'] = entered
+        print(entered)
         print(details['name'])
     elif x == 3:
         print('yeet')
+        print(entered)
+        details['address'] = entered
+        print(details['address'])
 
 def hide_widget(widget):
     widget.grid_forget()
