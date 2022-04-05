@@ -37,9 +37,9 @@ def update_window():
     global x, part
     part += 1
     x += 1
+    labelling1.set(labeltexts[part])
     if x == 1:
         print('first')
-        labelling1.set(labeltexts[part])
         hide_widget(deliveryframe)
         grid_widget(entryframe, 1, 0, 10, 10)
         grid_widget(detail_label, 0, 0)
@@ -54,9 +54,13 @@ def update_window():
             detailentry_labels.set(entry_labels[1])
             grid_widget(address_entry, 0, 1)
             detailentry_labels.set('address')
-
     elif x == 3:
         print('third')
+
+def delivery_command():
+    global x
+    update_window()
+    update_details(x),
 
 def update_details(x):
     global details, name
@@ -82,7 +86,7 @@ label1 = Label(top, textvariable = labelling1)
 label1.grid(row=0, column=0, padx=10, pady=3)
 
 #delivery or pick up buttons
-deliverbutton = Button(deliveryframe, textvariable=buttoning1, command=update_window)
+deliverbutton = Button(deliveryframe, textvariable=buttoning1, command=delivery_command)
 deliverbutton.grid(row=0, column=0, padx=10, pady=3, columnspan=2, sticky='WE')
 
 pickupbutton = Button(deliveryframe, textvariable=buttoning2, command=update_window)
