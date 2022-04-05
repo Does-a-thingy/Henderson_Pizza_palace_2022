@@ -60,7 +60,7 @@ def update_window():
 def delivery_command():
     global x
     update_window()
-    update_details(x),
+    update_details(x)
 
 def update_details(x):
     global details, name
