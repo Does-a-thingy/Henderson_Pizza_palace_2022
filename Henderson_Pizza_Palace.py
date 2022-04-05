@@ -48,8 +48,11 @@ def update_window():
     elif x == 2:
         print('second')
         hide_widget(name_entry)
-        grid_widget(address_entry, 0, 1)
         update_details(x)
+        #checking if delivery is true then procedding accordingly
+        if details['delivery'] == True:
+            detailentry_labels.set(entry_labels[1])
+            grid_widget(address_entry, 0, 1)
     elif x == 3:
         print('third')
 
@@ -92,14 +95,10 @@ name_entry = Entry(entryframe, textvariable=name)
 
 confirm_button = Button(entryframe, text='Confirm', command=update_window)
 
-#checking if delivery is true then procedding accordingly
-if order['delivery'] == True:
-    #set up for address gathering
-    address = DoubleVar()
-    address.set('')
+#set up for address gathering
+address = DoubleVar()
+address.set('')
 
-    address_entry = Entry(entryframe, textvariable=address)
-    detailentry_labels.set(entry_labels[1])
-
+address_entry = Entry(entryframe, textvariable=address)
 #execute the set up
 window.mainloop()
