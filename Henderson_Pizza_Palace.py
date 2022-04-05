@@ -57,12 +57,12 @@ def update_window():
         print('third')
 
 def update_details(x):
-    global order
+    global details, name
     if x == 1:
         details['delivery'] = True
     elif x == 2:
-        details['name'] = name.get()
-        print(order['name'])
+        details['name'] = name
+        print(details['name'])
     elif x == 3:
         print('yeet')
 
