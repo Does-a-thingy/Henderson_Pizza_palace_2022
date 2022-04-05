@@ -51,6 +51,7 @@ def update_window():
         update_details(x)
         #checking if delivery is true then procedding accordingly
         if details['delivery'] == True:
+            entered.set('')
             detailentry_labels.set(entry_labels[1])
             grid_widget(address_entry, 0, 1)
             detailentry_labels.set('address')
@@ -79,6 +80,7 @@ def hide_widget(widget):
 
 def grid_widget(widget, Row=0, Column=0, x=10, y=3):
     widget.grid(row=Row, column=Column, padx=x, pady=y, sticky='NSEW')
+
 #set up for the window
 grid_widget(top, y=10)
 grid_widget(deliveryframe, 1, 0, 10, 10)
@@ -94,20 +96,17 @@ pickupbutton = Button(deliveryframe, textvariable=buttoning2, command=update_win
 pickupbutton.grid(row=1, column=0, padx=10, pady=3, columnspan=2, sticky='WE')
 
 #setting up the name entry and submit button
-name = DoubleVar()
-name.set('Name')
+entered = DoubleVar()
+entered.set('')
 
 detail_label = Label(entryframe, textvariable=detailentry_labels)
 
-name_entry = Entry(entryframe, textvariable=name)
+name_entry = Entry(entryframe, textvariable=entered)
 
 confirm_button = Button(entryframe, text='Confirm', command=update_window)
 
 #set up for address gathering
-address = DoubleVar()
-address.set('address')
-
-address_entry = Entry(entryframe, textvariable=address)
+address_entry = Entry(entryframe, textvariable=entered)
 
 #execute the set up
 window.mainloop()
