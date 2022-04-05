@@ -3,7 +3,7 @@ from tkinter import *
 from tkinter.ttk import *
 
 #Dictionary to contain all of the information from the user
-details = {'delivery': False, 'name': '', 'address': '', 'phone': ''}
+details = {'delivery': False, 'name': 'Oliver', 'address': 'No where', 'phone': '0800'}
 
 #set up the tk variables
 window = Tk()
@@ -53,6 +53,8 @@ def update_window():
         if details['delivery'] == True:
             detailentry_labels.set(entry_labels[1])
             grid_widget(address_entry, 0, 1)
+            detailentry_labels.set('address')
+
     elif x == 3:
         print('third')
 
@@ -60,6 +62,7 @@ def update_details(x):
     global details, name
     if x == 1:
         details['delivery'] = True
+        print(details['delivery'])
     elif x == 2:
         details['name'] = name
         print(details['name'])
@@ -87,7 +90,7 @@ pickupbutton.grid(row=1, column=0, padx=10, pady=3, columnspan=2, sticky='WE')
 
 #setting up the name entry and submit button
 name = DoubleVar()
-name.set('')
+name.set('Name')
 
 detail_label = Label(entryframe, textvariable=detailentry_labels)
 
@@ -97,8 +100,9 @@ confirm_button = Button(entryframe, text='Confirm', command=update_window)
 
 #set up for address gathering
 address = DoubleVar()
-address.set('')
+address.set('address')
 
 address_entry = Entry(entryframe, textvariable=address)
+
 #execute the set up
 window.mainloop()
