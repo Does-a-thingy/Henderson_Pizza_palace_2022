@@ -13,10 +13,10 @@ deliveryframe = Frame(window)
 entryframe = Frame(window)
 
 #set up list variables
-labeltexts = ['Would you like delivery or pick up?', 'What name is this order under?', 'Where is this delivered to?']
+labeltexts = ['Would you like delivery or pick up?', 'What name is this order under?', 'Where is this delivered to?', 'What is your Phone number?', '']
 button1texts = ['Delivery', '']
 button2texts = ['Pick up', '']
-entry_labels = ['Name:', 'Address:', 'Phone number:']
+entry_labels = ['Name:', 'Address:', 'Phone number:', '']
 
 #set up text variables
 labelling1 = StringVar()
@@ -58,6 +58,7 @@ def update_window():
         print('third')
 
 def delivery_command():
+    # so that I can update delivery and not if it is pick up
     global x
     update_window()
     update_details(x)
