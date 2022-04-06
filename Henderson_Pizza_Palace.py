@@ -29,35 +29,25 @@ detailentry_labels = StringVar()
 detailentry_labels.set(entry_labels[0])
 
 #set up argument variables
-x = 0
 part = 0
 
 # set up the functions
 def update_window():
-    global x, part
+    global part
     part += 1
-    x += 1
     labelling1.set(labeltexts[part])
-    if x == 1:
+    if details['delivery'] == True:
         print('first')
         hide_widget(deliveryframe)
         grid_widget(entryframe, 1, 0, 10, 10)
-        grid_widget(detail_label, 0, 0)
+        grid_widget(name_label, 0, 0)
         grid_widget(name_entry, 0, 1)
-        grid_widget(confirm_button, 1, 0, 10, 10)
-    elif x == 2:
-        print('second')
-        hide_widget(name_entry)
-        update_details(x)
-        #checking if delivery is true then procedding accordingly
-        if details['delivery'] == True:
-            entered.set('')
-            detailentry_labels.set(entry_labels[1])
-            grid_widget(address_entry, 0, 1)
-            detailentry_labels.set('Address:')
-        else:
-            x = 4
-    elif x == 3:
+        grid_widget(address_label, 1, 0)
+        grid_widget(address_entry, 1, 1)
+        grid_widget(phone_label, 2, 0)
+        grid_widget(phonenumber_entry, 2, 1)
+        grid_widget(confirm_button, 3, 0, 10, 10)
+    elif part == 2:
         print('third')
         update_details(x)
         hide_widget(address_entry)
