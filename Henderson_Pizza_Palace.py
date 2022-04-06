@@ -21,12 +21,20 @@ entry_labels = ['Name:', 'Address:', 'Phone number:', '']
 #set up text variables
 labelling1 = StringVar()
 labelling1.set(labeltexts[0])
+labelling2 = StringVar()
+labelling2.set(labeltexts[2])
+labelling3 = StringVar()
+labelling3.set(labeltexts[3])
 buttoning1 = StringVar()
 buttoning1.set(button1texts[0])
 buttoning2 = StringVar()
 buttoning2.set(button2texts[0])
 detailentry_labels = StringVar()
 detailentry_labels.set(entry_labels[0])
+address_labels = StringVar()
+address_labels.set(entry_labels[1])
+phone_labels = StringVar()
+phone_labels.set(entry_labels[1])
 
 #set up argument variables
 part = 0
@@ -42,22 +50,25 @@ def update_window():
         grid_widget(entryframe, 1, 0, 10, 10)
         grid_widget(name_label, 0, 0)
         grid_widget(name_entry, 0, 1)
-        grid_widget(address_label, 1, 0)
-        grid_widget(address_entry, 1, 1)
-        grid_widget(phone_label, 2, 0)
-        grid_widget(phonenumber_entry, 2, 1)
-        grid_widget(confirm_button, 3, 0, 10, 10)
+        grid_widget(label2, 1, 0)
+        grid_widget(address_label, 2, 0)
+        grid_widget(address_entry, 2, 1)
+        grid_widget(label3, 3, 0)
+        grid_widget(phone_label, 4, 0)
+        grid_widget(phonenumber_entry, 4, 1)
+        grid_widget(confirm_button, 5, 0, 10, 10)
+
     elif part == 2:
         print('third')
-        update_details(x)
-        hide_widget(address_entry)
-        grid_widget(phonenumber_entery, 0, 1)
+        update_details(part)
+        part = 4
+
 
 def delivery_command():
     # so that I can update delivery and not if it is pick up
-    global x
+    global part
     update_window()
-    update_details(x)
+    update_details(part)
 
 def update_details(x):
     global details, entered
@@ -65,8 +76,8 @@ def update_details(x):
         details['delivery'] = True
     elif x == 2:
         details['name'] = entered.get()
-    elif x == 3:
         details['address'] = entered.get()
+        details['phone'] =
 
 def hide_widget(widget):
     widget.grid_forget()
@@ -92,17 +103,31 @@ pickupbutton.grid(row=1, column=0, padx=10, pady=3, columnspan=2, sticky='WE')
 entered = StringVar()
 entered.set('')
 
-detail_label = Label(entryframe, textvariable=detailentry_labels)
+name_label = Label(entryframe, textvariable=detailentry_labels)
 
 name_entry = Entry(entryframe, textvariable=entered)
 
 confirm_button = Button(entryframe, text='Confirm', command=update_window)
 
 #set up for address gathering
-address_entry = Entry(entryframe, textvariable=entered)
+label2 = Label(entryframe, textvariable=labelling2)
+
+address_label = Label(entryframe, textvariable=address_labels)
+
+Addressed = StringVar()
+Addressed.set('')
+
+address_entry = Entry(entryframe, textvariable=Addressed)
 
 #set up for phone number gathering
-phonenumber_entery = Entry(entryframe, textvariable=entered)
+label3 = Label(entryframe, textvariable=labelling3)
+
+phone_label = Label(entryframe, textvariable=phone_labels)
+
+Phoned = StringVar()
+Phoned.set('')
+
+phonenumber_entry = Entry(entryframe, textvariable=Phoned)
 
 #execute the set up
 window.mainloop()
