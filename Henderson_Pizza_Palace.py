@@ -59,7 +59,6 @@ def update_window():
         grid_widget(confirm_button, 5, 0, 10, 10)
 
     elif part == 2:
-        print('third')
         update_details(part)
         part = 4
         labelling1.set(labeltexts[part])
