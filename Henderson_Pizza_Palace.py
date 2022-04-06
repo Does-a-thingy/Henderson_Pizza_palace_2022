@@ -3,7 +3,7 @@ from tkinter import *
 from tkinter.ttk import *
 
 #Dictionary to contain all of the information from the user
-details = {'delivery': False, 'name': 'Oliver', 'address': 'No where', 'phone': '0800'}
+details = {'delivery': False, 'name': 'Oliver', 'address': 'No where', 'phone': '0800', 'pizza1':'', 'pizza2':'', 'pizza3':'', 'pizza4':'', 'pizza5':'',}
 
 #set up the tk variables
 window = Tk()
@@ -13,7 +13,7 @@ deliveryframe = Frame(window)
 entryframe = Frame(window)
 
 #set up list variables
-labeltexts = ['Would you like delivery or pick up?', 'What name is this order under?', 'Where is this delivered to?', 'What is your Phone number?', '']
+labeltexts = ['Would you like delivery or pick up?', 'What name is this order under?', 'Where is this delivered to?', 'What is your Phone number?', 'What pizza would you like', 'FILLER2', 'FILLER3', 'FILLER4', 'FILLER5']
 button1texts = ['Delivery', '']
 button2texts = ['Pick up', '']
 entry_labels = ['Name:', 'Address:', 'Phone number:', '']
@@ -34,7 +34,7 @@ detailentry_labels.set(entry_labels[0])
 address_labels = StringVar()
 address_labels.set(entry_labels[1])
 phone_labels = StringVar()
-phone_labels.set(entry_labels[1])
+phone_labels.set(entry_labels[2])
 
 #set up argument variables
 part = 0
@@ -44,16 +44,16 @@ def update_window():
     global part
     part += 1
     labelling1.set(labeltexts[part])
-    if details['delivery'] == True:
+    if part == 1:
         print('first')
         hide_widget(deliveryframe)
         grid_widget(entryframe, 1, 0, 10, 10)
         grid_widget(name_label, 0, 0)
         grid_widget(name_entry, 0, 1)
-        grid_widget(label2, 1, 0)
+        grid_widget(label2, 1, 0, 10, 20)
         grid_widget(address_label, 2, 0)
         grid_widget(address_entry, 2, 1)
-        grid_widget(label3, 3, 0)
+        grid_widget(label3, 3, 0, 10, 20)
         grid_widget(phone_label, 4, 0)
         grid_widget(phonenumber_entry, 4, 1)
         grid_widget(confirm_button, 5, 0, 10, 10)
@@ -62,6 +62,8 @@ def update_window():
         print('third')
         update_details(part)
         part = 4
+        labelling1.set(labeltexts[part])
+        hide_widget(entryframe)
 
 
 def delivery_command():
@@ -76,8 +78,8 @@ def update_details(x):
         details['delivery'] = True
     elif x == 2:
         details['name'] = entered.get()
-        details['address'] = entered.get()
-        details['phone'] =
+        details['address'] = Addressed.get()
+        details['phone'] = Phoned.get()
 
 def hide_widget(widget):
     widget.grid_forget()
