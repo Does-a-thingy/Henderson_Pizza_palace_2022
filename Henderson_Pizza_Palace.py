@@ -54,12 +54,14 @@ def update_window():
             entered.set('')
             detailentry_labels.set(entry_labels[1])
             grid_widget(address_entry, 0, 1)
-            detailentry_labels.set('address')
+            detailentry_labels.set('Address:')
         else:
-            x += 2
+            x = 4
     elif x == 3:
         print('third')
         update_details(x)
+        hide_widget(address_entry)
+        grid_widget(phonenumber_entery, 0, 1)
 
 def delivery_command():
     # so that I can update delivery and not if it is pick up
@@ -72,14 +74,9 @@ def update_details(x):
     if x == 1:
         details['delivery'] = True
     elif x == 2:
-        details['name'] = entered
-        print(entered)
-        print(details['name'])
+        details['name'] = entered.get()
     elif x == 3:
-        print('yeet')
-        print(entered)
-        details['address'] = entered
-        print(details['address'])
+        details['address'] = entered.get()
 
 def hide_widget(widget):
     widget.grid_forget()
@@ -102,7 +99,7 @@ pickupbutton = Button(deliveryframe, textvariable=buttoning2, command=update_win
 pickupbutton.grid(row=1, column=0, padx=10, pady=3, columnspan=2, sticky='WE')
 
 #setting up the name entry and submit button
-entered = DoubleVar()
+entered = StringVar()
 entered.set('')
 
 detail_label = Label(entryframe, textvariable=detailentry_labels)
@@ -113,6 +110,9 @@ confirm_button = Button(entryframe, text='Confirm', command=update_window)
 
 #set up for address gathering
 address_entry = Entry(entryframe, textvariable=entered)
+
+#set up for phone number gathering
+phonenumber_entery = Entry(entryframe, textvariable=entered)
 
 #execute the set up
 window.mainloop()
