@@ -104,30 +104,26 @@ entered = StringVar()
 entered.set('')
 
 name_label = Label(entryframe, textvariable=detailentry_labels)
-
 name_entry = Entry(entryframe, textvariable=entered)
-
-confirm_button = Button(entryframe, text='Confirm', command=update_window)
 
 #set up for address gathering
 label2 = Label(entryframe, textvariable=labelling2)
 
 address_label = Label(entryframe, textvariable=address_labels)
-
 Addressed = StringVar()
 Addressed.set('')
-
 address_entry = Entry(entryframe, textvariable=Addressed)
 
 #set up for phone number gathering
 label3 = Label(entryframe, textvariable=labelling3)
 
 phone_label = Label(entryframe, textvariable=phone_labels)
-
 Phoned = StringVar()
 Phoned.set('')
-
 phonenumber_entry = Entry(entryframe, textvariable=Phoned)
+
+#Create confirm button
+confirm_button = Button(entryframe, text='Confirm', command=update_window)
 
 #execute the set up
 window.mainloop()
