@@ -7,11 +7,13 @@ details = {'delivery': False, 'name': 'Oliver', 'address': 'No where', 'phone': 
 
 #set up the tk variables
 window = Tk()
+window.geometry("700x500")
+
 window.title('Henderson Pizza Place')
-top = Frame(window)
-deliveryframe = Frame(window)
-entryframe = Frame(window)
-sideframe = Frame(window)
+top = Frame(window, highlightbackground="blue", highlightthickness=1)
+deliveryframe = Frame(window, highlightbackground="blue", highlightthickness=1)
+entryframe = Frame(window, highlightbackground="blue" ,highlightthickness=1)
+sideframe = Frame(window, highlightbackground="green", highlightthickness=1)
 
 #set up list variables
 labeltexts = ['Would you like delivery or pick up?', 'What name is this order under?', 'Where is this delivered to?', 'What is your Phone number?', 'What pizza would you like', 'FILLER1', 'FILLER2', 'FILLER3']
