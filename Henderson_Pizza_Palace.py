@@ -11,14 +11,17 @@ window.title('Henderson Pizza Place')
 top = Frame(window)
 deliveryframe = Frame(window)
 entryframe = Frame(window)
+sideframe = Frame(window)
 
 #set up list variables
-labeltexts = ['Would you like delivery or pick up?', 'What name is this order under?', 'Where is this delivered to?', 'What is your Phone number?', 'What pizza would you like', 'FILLER2', 'FILLER3', 'FILLER4', 'FILLER5']
+labeltexts = ['Would you like delivery or pick up?', 'What name is this order under?', 'Where is this delivered to?', 'What is your Phone number?', 'What pizza would you like', 'FILLER1', 'FILLER2', 'FILLER3']
 button1texts = ['Delivery', '']
 button2texts = ['Pick up', '']
 entry_labels = ['Name:', 'Address:', 'Phone number:', '']
 
 #set up text variables
+delvorpick = StringVar()
+delvorpick.set('Pick Up')
 labelling1 = StringVar()
 labelling1.set(labeltexts[0])
 labelling2 = StringVar()
@@ -50,32 +53,35 @@ def update_window():
         grid_widget(entryframe, 1, 0, 10, 10)
         grid_widget(name_label, 0, 0)
         grid_widget(name_entry, 0, 1)
-        grid_widget(label2, 1, 0, 10, 20)
-        grid_widget(address_label, 2, 0)
-        grid_widget(address_entry, 2, 1)
-        grid_widget(label3, 3, 0, 10, 20)
-        grid_widget(phone_label, 4, 0)
-        grid_widget(phonenumber_entry, 4, 1)
+        if details['delivery'] == True:
+            delvorpick.set('Delivery')
+            grid_widget(label2, 1, 0, 10, 20)
+            grid_widget(address_label, 2, 0)
+            grid_widget(address_entry, 2, 1)
+            grid_widget(label3, 3, 0, 10, 20)
+            grid_widget(phone_label, 4, 0)
+            grid_widget(phonenumber_entry, 4, 1)
         grid_widget(confirm_button, 5, 0, 10, 10)
-
+        grid_widget(side_delivery, y = 10)
     elif part == 2:
+        print('second')
         update_details(part)
-        part = 4
-        labelling1.set(labeltexts[part])
+        labelling1.set(labeltexts[4])
         hide_widget(entryframe)
-
+    elif part == 3:
+        print('Third')
 
 def delivery_command():
-    # so that I can update delivery and not if it is pick up
+    #so that I can update delivery and not if it is pick up
     global part
-    update_window()
     update_details(part)
+    update_window()
 
 def update_details(x):
     global details, entered
-    if x == 1:
+    if x == 0:
         details['delivery'] = True
-    elif x == 2:
+    elif x == 1:
         details['name'] = entered.get()
         details['address'] = Addressed.get()
         details['phone'] = Phoned.get()
@@ -86,9 +92,10 @@ def hide_widget(widget):
 def grid_widget(widget, Row=0, Column=0, x=10, y=3):
     widget.grid(row=Row, column=Column, padx=x, pady=y, sticky='NSEW')
 
-#set up for the window
+#Start of set up for visual interactives
 grid_widget(top, y=10)
-grid_widget(deliveryframe, 1, 0, 10, 10)
+grid_widget(deliveryframe, Row = 1, y = 10)
+sideframe.grid(row=0, column=1, columnspan= 2, padx=10, pady=10, sticky='NSEW')
 
 label1 = Label(top, textvariable = labelling1)
 label1.grid(row=0, column=0, padx=10, pady=3)
@@ -125,6 +132,10 @@ phonenumber_entry = Entry(entryframe, textvariable=Phoned)
 
 #Create confirm button
 confirm_button = Button(entryframe, text='Confirm', command=update_window)
+
+# Creating the parts for the side bar
+side_delivery = Label(sideframe, textvariable=delvorpick)
+side_name = Label(sideframe, textvariable=entered)
 
 #execute the set up
 window.mainloop()
