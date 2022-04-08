@@ -72,9 +72,13 @@ def update_window():
         update_details(part)
         labelling1.set(labeltexts[4])
         hide_widget(entryframe)
-        grid_widget(side_name)
+        grid_widget(sidenamepre, 1)
+        grid_widget(side_name, 1, 1)
         if details['delivery'] == True:
-
+            grid_widget(sideaddresspre, 2)
+            grid_widget(side_address, 2, 1)
+            grid_widget(sidephonepre, 3)
+            grid_widget(side_phone, 3, 1)
     elif part == 3:
         print('Third')
 
@@ -147,8 +151,13 @@ grid_widget(blankspacer)
 
 side_delivery = Label(sideframe, textvariable=delvorpick)
 
+sidenamepre = Label(sideframe, text='Name: ')
 side_name = Label(sideframe, textvariable=entered)
+
+sideaddresspre = Label(sideframe, text='Address: ')
 side_address = Label(sideframe, textvariable=Addressed)
+
+sidephonepre = Label(sideframe, text='Phone Number: ')
 side_phone = Label(sideframe, textvariable=Phoned)
 
 #execute the set up
