@@ -8,12 +8,13 @@ details = {'delivery': False, 'name': 'Oliver', 'address': 'No where', 'phone': 
 #set up the tk variables
 window = Tk()
 window.geometry("700x500")
-
 window.title('Henderson Pizza Place')
-top = Frame(window, highlightbackground="blue", highlightthickness=1)
-deliveryframe = Frame(window, highlightbackground="blue", highlightthickness=1)
-entryframe = Frame(window, highlightbackground="blue" ,highlightthickness=1)
-sideframe = Frame(window, highlightbackground="green", highlightthickness=1)
+
+leftside = Frame(window)
+top = Frame(leftside)
+deliveryframe = Frame(leftside)
+entryframe = Frame(leftside)
+sideframe = LabelFrame(window, text='Your Order: ')
 
 #set up list variables
 labeltexts = ['Would you like delivery or pick up?', 'What name is this order under?', 'Where is this delivered to?', 'What is your Phone number?', 'What pizza would you like', 'FILLER1', 'FILLER2', 'FILLER3']
@@ -64,6 +65,7 @@ def update_window():
             grid_widget(phone_label, 4, 0)
             grid_widget(phonenumber_entry, 4, 1)
         grid_widget(confirm_button, 5, 0, 10, 10)
+        hide_widget(blankspacer)
         grid_widget(side_delivery, y = 10)
     elif part == 2:
         print('second')
@@ -95,8 +97,9 @@ def grid_widget(widget, Row=0, Column=0, x=10, y=3):
     widget.grid(row=Row, column=Column, padx=x, pady=y, sticky='NSEW')
 
 #Start of set up for visual interactives
+grid_widget(leftside, y=10)
 grid_widget(top, y=10)
-grid_widget(deliveryframe, Row = 1, y = 10)
+grid_widget(deliveryframe, Row=1, y=10)
 sideframe.grid(row=0, column=1, columnspan= 2, padx=10, pady=10, sticky='NSEW')
 
 label1 = Label(top, textvariable = labelling1)
@@ -136,8 +139,11 @@ phonenumber_entry = Entry(entryframe, textvariable=Phoned)
 confirm_button = Button(entryframe, text='Confirm', command=update_window)
 
 # Creating the parts for the side bar
+blankspacer = Label(sideframe, text='')
+grid_widget(blankspacer)
 side_delivery = Label(sideframe, textvariable=delvorpick)
 side_name = Label(sideframe, textvariable=entered)
+
 
 #execute the set up
 window.mainloop()
