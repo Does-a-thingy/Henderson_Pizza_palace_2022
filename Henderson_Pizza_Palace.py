@@ -72,6 +72,9 @@ def update_window():
         update_details(part)
         labelling1.set(labeltexts[4])
         hide_widget(entryframe)
+        grid_widget(side_name)
+        if details['delivery'] == True:
+
     elif part == 3:
         print('Third')
 
@@ -141,9 +144,12 @@ confirm_button = Button(entryframe, text='Confirm', command=update_window)
 # Creating the parts for the side bar
 blankspacer = Label(sideframe, text='')
 grid_widget(blankspacer)
-side_delivery = Label(sideframe, textvariable=delvorpick)
-side_name = Label(sideframe, textvariable=entered)
 
+side_delivery = Label(sideframe, textvariable=delvorpick)
+
+side_name = Label(sideframe, textvariable=entered)
+side_address = Label(sideframe, textvariable=Addressed)
+side_phone = Label(sideframe, textvariable=Phoned)
 
 #execute the set up
 window.mainloop()
