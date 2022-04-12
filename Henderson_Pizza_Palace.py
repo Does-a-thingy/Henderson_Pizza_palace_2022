@@ -21,7 +21,7 @@ labeltexts = ['Would you like delivery or pick up?', 'What name is this order un
 button1texts = ['Delivery', '']
 button2texts = ['Pick up', '']
 entry_labels = ['Name:', 'Address:', 'Phone number:', '']
-pizzas_and_toppings = [['Classic cheese', 'Pineapple island', 'Multitudinal of meat', 'mushroom and meats', 'vegan mix', '', ''],['', ''],['grated cheese', 'pineapple', 'ham', 'sliced mushroom', 'olives', 'spinich', 'sliced onion', 'grated carrot', 'grated vegan cheese', 'sliced jalapenos', '']]
+pizzas_and_toppings = [['Classic cheese', 'Pineapple island', 'Multitudinal of meat', 'mushroom and meats', 'vegan mix', '', ''], ['Dragons delight', '', '', '', ''], ['grated cheese', 'pineapple', 'ham', 'sliced mushroom', 'olives', 'spinich', 'sliced onion', 'grated carrot', 'grated vegan cheese', 'sliced jalapenos', 'sliced carolina reapers', '', '', '']]
 
 #set up text variables
 delvorpick = StringVar()
