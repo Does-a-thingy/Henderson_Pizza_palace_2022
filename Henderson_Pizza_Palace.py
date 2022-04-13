@@ -95,7 +95,6 @@ def update_details(x):
         details['delivery'] = True
     elif x == 1:
         details['name'] = entered.get()
-        print(entered.get())
         details['address'] = Addressed.get()
         details['phone'] = Phoned.get()
 
