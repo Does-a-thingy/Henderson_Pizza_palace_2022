@@ -21,7 +21,7 @@ labeltexts = ['Would you like delivery or pick up?', 'What name is this order un
 button1texts = ['Delivery', '']
 button2texts = ['Pick up', '']
 entry_labels = ['Name:', 'Address:', 'Phone number:', '']
-pizzas_and_toppings = [['Classic cheese', 'Pineapple island', 'Multitudinal of meat', 'mushroom and meats', 'vegan mix', 'BBQ spice', 'crunchy chick salad'], ['Dragons delight', 'The whole shabang', '', '', ''], ['grated cheese', 'pineapple', 'ham', 'sliced mushroom', 'olives', 'spinich', 'sliced onion', 'grated carrot', 'grated vegan cheese', 'sliced jalapenos', 'sliced carolina reapers', 'crunchy chicken pieces', '', '']]
+pizzas_and_toppings = [['Classic cheese', 'Pineapple island', 'Multitudinal of meat', 'mushroom and meats', 'vegan mix', 'BBQ spice', 'crunchy chick salad'], ['Dragons delight', 'The whole shabang', 'saturday night smoko', '', ''], ['grated cheese', 'pineapple', 'ham', 'sliced mushroom', 'olives', 'spinich', 'sliced onion', 'grated carrot', 'grated vegan cheese', 'sliced jalapenos', 'sliced carolina reapers', 'crunchy chicken pieces', '', '']]
 
 #set up text variables
 delvorpick = StringVar()
@@ -90,11 +90,12 @@ def delivery_command():
     update_window()
 
 def update_details(x):
-    global details, entered
+    global details
     if x == 0:
         details['delivery'] = True
     elif x == 1:
         details['name'] = entered.get()
+        print(entered.get())
         details['address'] = Addressed.get()
         details['phone'] = Phoned.get()
 
