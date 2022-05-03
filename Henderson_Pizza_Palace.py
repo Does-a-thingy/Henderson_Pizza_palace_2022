@@ -21,7 +21,7 @@ labeltexts = ['Would you like delivery or pick up?', 'What name is this order un
 button1texts = ['Delivery', '']
 button2texts = ['Pick up', '']
 entry_labels = ['Name:', 'Address:', 'Phone number:', '']
-pizzas_and_toppings = [['Classic cheese', 'Pineapple island', 'Multitudinal of meat', 'Mushroom and meats', 'Vegan mix', 'BBQ spice', 'Crunchy chick salad', 'Blank pizza'], ['Dragons delight', 'The whole shabang', 'saturday night smoko', 'Vegan majestic composite', "Vegetarian's exspansive collation"], ['grated cheese', 'pineapple', 'ham', 'sliced mushroom', 'olives', 'spinich', 'sliced onion', 'grated carrot', 'grated vegan cheese', 'sliced jalapenos', 'sliced carolina reapers', 'crunchy chicken pieces']]
+pizzas_and_toppings = [['Blank pizza', 'Classic cheese', 'Pineapple island', 'Multitudinal of meat', 'Mushroom and meats', 'Vegan mix', 'BBQ spice', 'Crunchy chick salad'], ['Dragons delight', 'The whole shabang', 'saturday night smoko', 'Vegan majestic composite', "Vegetarian's exspansive collation"], ['grated cheese', 'pineapple', 'ham', 'sliced mushroom', 'olives', 'spinich', 'sliced onion', 'grated carrot', 'grated vegan cheese', 'sliced jalapenos', 'sliced carolina reapers', 'crunchy chicken pieces']]
 
 #set up text variables
 delvorpick = StringVar()
@@ -143,7 +143,7 @@ Phoned = StringVar()
 Phoned.set('')
 phonenumber_entry = Entry(entryframe, textvariable=Phoned)
 
-#pizza preset options - 13 pizzas, 8 reg, 5 gorm
+#pizza preset options - 13 pizzas, 1 blank, 7 reg, 5 gorm
 
 
 
