@@ -14,6 +14,7 @@ Label(win, textvariable = showthing).pack()
 
 def show():
     global total_list, total_number
+    total_number.set(total_number.get() + 2)
     showthing.set(total_number.get())
 
 num1.set(4)
