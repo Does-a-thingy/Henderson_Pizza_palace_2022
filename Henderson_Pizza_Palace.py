@@ -15,6 +15,7 @@ top = Frame(leftside)
 deliveryframe = Frame(leftside)
 entryframe = Frame(leftside)
 sideframe = LabelFrame(window, text='Your Order:')
+pizzaframe = Frame(leftside)
 
 #set up list variables
 labeltexts = ['Would you like delivery or pick up?', 'What name is this order under?', 'Where is this delivered to?', 'What is your Phone number?', 'What preset would you like to use?', 'FILLER1', 'FILLER2', 'FILLER3']
@@ -144,14 +145,23 @@ Phoned.set('')
 phonenumber_entry = Entry(entryframe, textvariable=Phoned)
 
 #pizza preset options - 13 pizzas, 1 blank, 7 reg, 5 gorm
+none_button = Button(pizzaframe, text='')
+cheese_button = Button(pizzaframe, text='')
+hawaii_button = Button(pizzaframe, text='')
+meat_button = Button(pizzaframe, text='')
+mushroom_button = Button(pizzaframe, text='')
+vegan_button = Button(pizzaframe, text='')
+BBQ_button = Button(pizzaframe, text='')
+chick_button = Button(pizzaframe, text='')
 
-
-
-
-
+dragons_button = Button(pizzaframe, text='')
+shabang_button = Button(pizzaframe, text='')
+smoko_button = Button(pizzaframe, text='')
+vegan_plus_button = Button(pizzaframe, text='')
+vegetarian_button = Button(pizzaframe, text='')
 
 #pizza toppings
-
+#['grated cheese', 'pineapple', 'ham', 'sliced mushroom', 'olives', 'spinich', 'sliced onion', 'grated carrot', 'grated vegan cheese', 'sliced jalapenos', 'sliced carolina reapers', 'crunchy chicken pieces']
 
 #Create confirm button
 confirm_button = Button(entryframe, text='Confirm', command=update_window)
