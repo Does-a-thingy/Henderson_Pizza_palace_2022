@@ -144,6 +144,24 @@ Phoned = StringVar()
 Phoned.set('')
 phonenumber_entry = Entry(entryframe, textvariable=Phoned)
 
+#Create confirm button
+confirm_button = Button(entryframe, text='Confirm', command=update_window)
+
+# Creating the parts for the side bar
+blankspacer = Label(sideframe, text='')
+grid_widget(blankspacer)
+
+side_delivery = Label(sideframe, textvariable=delvorpick)
+
+sidenamepre = Label(sideframe, text='Name: ')
+side_name = Label(sideframe, textvariable=entered)
+
+sideaddresspre = Label(sideframe, text='Address: ')
+side_address = Label(sideframe, textvariable=Addressed)
+
+sidephonepre = Label(sideframe, text='Phone Number: ')
+side_phone = Label(sideframe, textvariable=Phoned)
+
 #pizza preset options - 13 pizzas, 1 blank, 7 reg, 5 gorm
 none_button = Button(pizzaframe, text='')
 cheese_button = Button(pizzaframe, text='')
@@ -163,23 +181,6 @@ vegetarian_button = Button(pizzaframe, text='')
 #pizza toppings
 #['grated cheese', 'pineapple', 'ham', 'sliced mushroom', 'olives', 'spinich', 'sliced onion', 'grated carrot', 'grated vegan cheese', 'sliced jalapenos', 'sliced carolina reapers', 'crunchy chicken pieces']
 
-#Create confirm button
-confirm_button = Button(entryframe, text='Confirm', command=update_window)
-
-# Creating the parts for the side bar
-blankspacer = Label(sideframe, text='')
-grid_widget(blankspacer)
-
-side_delivery = Label(sideframe, textvariable=delvorpick)
-
-sidenamepre = Label(sideframe, text='Name: ')
-side_name = Label(sideframe, textvariable=entered)
-
-sideaddresspre = Label(sideframe, text='Address: ')
-side_address = Label(sideframe, textvariable=Addressed)
-
-sidephonepre = Label(sideframe, text='Phone Number: ')
-side_phone = Label(sideframe, textvariable=Phoned)
 
 #execute the set up
 window.mainloop()
