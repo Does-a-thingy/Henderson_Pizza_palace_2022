@@ -16,6 +16,7 @@ deliveryframe = Frame(leftside)
 entryframe = Frame(leftside)
 sideframe = LabelFrame(window, text='Your Order:')
 pizzaframe = Frame(leftside)
+ingredientframe = Frame(leftside)
 
 #set up list variables
 labeltexts = ['Would you like delivery or pick up?', 'What name is this order under?', 'Where is this delivered to?', 'What is your Phone number?', 'What preset would you like to use?', 'FILLER1', 'FILLER2', 'FILLER3']
@@ -180,7 +181,10 @@ vegetarian_button = Button(pizzaframe, text='')
 
 #pizza toppings
 #['grated cheese', 'pineapple', 'ham', 'sliced mushroom', 'olives', 'spinich', 'sliced onion', 'grated carrot', 'grated vegan cheese', 'sliced jalapenos', 'sliced carolina reapers', 'crunchy chicken pieces']
-
+cheesecheck = checkbox(ingredientframe, text='Grated cheese', onvalue=1, offvalue=0)
+pinecheck = checkbox(ingredientframe, text='Pineapple', onvalue=1, offvalue=0)
+hamcheck = checkbox(ingredientframe, text='Ham', onvalue=1, offvalue=0)
+mushcheck = checkbox(ingredientframe, text='Sliced mushroom', onvalue=1, offvalue=0)
 
 #execute the set up
 window.mainloop()
