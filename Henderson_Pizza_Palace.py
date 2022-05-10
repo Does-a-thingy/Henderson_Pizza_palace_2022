@@ -166,6 +166,8 @@ side_phone = Label(sideframe, textvariable=Phoned)
 #pizza preset options - 14 pizzas, 1 blank, 8 reg, 5 gorm
 none_button = Button(pizzaframe, text='').grid(row=0, column=0)
 
+
+
 cheese_button = Button(pizzaframe, text='').grid(row=1, column=0)
 hawaii_button = Button(pizzaframe, text='').grid(row=1, column=1)
 meat_button = Button(pizzaframe, text='').grid(row=2, column=0)
