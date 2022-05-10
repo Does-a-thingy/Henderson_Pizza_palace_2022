@@ -23,7 +23,7 @@ labeltexts = ['Would you like delivery or pick up?', 'What name is this order un
 button1texts = ['Delivery', '']
 button2texts = ['Pick up', '']
 entry_labels = ['Name:', 'Address:', 'Phone number:', '']
-pizzas_and_toppings = [['None', 'Classic cheese', 'Pineapple island', 'Multitudinal of meat', 'Mushroom and meats', 'Vegan mix', 'BBQ spice', 'Crunchy chick salad'], ['Dragons delight', 'The whole shabang', 'saturday night smoko', 'Vegan majestic composite', "Vegetarian's exspansive collation"], ['grated cheese', 'pineapple', 'ham', 'sliced mushroom', 'olives', 'spinich', 'sliced onion', 'grated carrot', 'grated vegan cheese', 'sliced jalapenos', 'sliced carolina reapers', 'crunchy chicken pieces']]
+pizzas_and_toppings = [['None', 'Classic cheese', 'Pineapple island', 'Multitudinal of meat', 'Mushroom and meats', 'Vegan mix', 'BBQ spice', 'Crunchy chick salad'], ['Dragons delight', 'The whole shabang', 'saturday night smoko', 'Vegan majestic composite', "Vegetarian's exspansive collation"], ['grated cheese', 'pineapple', 'ham', 'sliced mushroom', 'olives', 'spinich', 'sliced onion', 'grated carrot', 'grated vegan cheese', 'sliced jalapenos', 'diced carolina reapers', 'crunchy chicken pieces']]
 
 #set up text variables
 delvorpick = StringVar()
@@ -180,11 +180,19 @@ vegan_plus_button = Button(pizzaframe, text='')
 vegetarian_button = Button(pizzaframe, text='')
 
 #pizza toppings
-#['grated cheese', 'pineapple', 'ham', 'sliced mushroom', 'olives', 'spinich', 'sliced onion', 'grated carrot', 'grated vegan cheese', 'sliced jalapenos', 'sliced carolina reapers', 'crunchy chicken pieces']
+#['grated cheese', 'pineapple', 'ham', 'sliced mushroom', 'olives', 'spinich', 'sliced onion', 'grated carrot', 'grated vegan cheese', 'sliced jalapenos', 'diced carolina reapers', 'crunchy chicken pieces']
 cheesecheck = checkbox(ingredientframe, text='Grated cheese', onvalue=1, offvalue=0)
 pinecheck = checkbox(ingredientframe, text='Pineapple', onvalue=1, offvalue=0)
 hamcheck = checkbox(ingredientframe, text='Ham', onvalue=1, offvalue=0)
 mushcheck = checkbox(ingredientframe, text='Sliced mushroom', onvalue=1, offvalue=0)
+olivecheck = checkbox(ingredientframe, text='Olives', onvalue=1, offvalue=0)
+spinecheck = checkbox(ingredientframe, text='Spinich', onvalue=1, offvalue=0)
+onioncheck = checkbox(ingredientframe, text='sliced onion', onvalue=1, offvalue=0)
+carrotcheck = checkbox(ingredientframe, text='Grated carrot', onvalue=1, offvalue=0)
+vegancheck = checkbox(ingredientframe, text='Grated vegan cheese', onvalue=1, offvalue=0)
+jalacheck = checkbox(ingredientframe, text='Sliced jalapenos', onvalue=1, offvalue=0)
+reapercheck = checkbox(ingredientframe, text='diced carolina reapers', onvalue=1, offvalue=0)
+chickcheck = checkbox(ingredientframe, text='Crunchy chicken pieces', onvalue=1, offvalue=0)
 
 #execute the set up
 window.mainloop()
