@@ -164,26 +164,26 @@ sidephonepre = Label(sideframe, text='Phone Number: ')
 side_phone = Label(sideframe, textvariable=Phoned)
 
 #pizza preset options - 14 pizzas, 1 blank, 8 reg, 5 gorm
-none_button = Button(pizzaframe, text='').grid(row=0, column=0)
+none_button = Button(pizzaframe, text='None').grid(row=0, column=0)
 
+Regual_label = Button(pizzaframe, text='Regual pizza').grid(row=1, column=0, columnspan=2)
 
+cheese_button = Button(pizzaframe, text='').grid(row=2, column=0)
+hawaii_button = Button(pizzaframe, text='').grid(row=2, column=1)
+meat_button = Button(pizzaframe, text='').grid(row=3, column=0)
+mushroom_button = Button(pizzaframe, text='').grid(row=3, column=1)
+vegan_button = Button(pizzaframe, text='').grid(row=4, column=0)
+BBQ_button = Button(pizzaframe, text='').grid(row=4, column=1)
+chick_button = Button(pizzaframe, text='').grid(row=5, column=0)
+chick_hawaii_button = Button(pizzaframe, text='').grid(row=5, column=1)
 
-cheese_button = Button(pizzaframe, text='').grid(row=1, column=0)
-hawaii_button = Button(pizzaframe, text='').grid(row=1, column=1)
-meat_button = Button(pizzaframe, text='').grid(row=2, column=0)
-mushroom_button = Button(pizzaframe, text='').grid(row=2, column=1)
-vegan_button = Button(pizzaframe, text='').grid(row=3, column=0)
-BBQ_button = Button(pizzaframe, text='').grid(row=3, column=1)
-chick_button = Button(pizzaframe, text='').grid(row=4, column=0)
-chick_hawaii_button = Button(pizzaframe, text='').grid(row=4, column=1)
+Gourmet_label = Label(pizzaframe, text='Gourmet Pizzas').grid(row=6, column=0, columnspan=2)
 
-Gourmet_label = Label(pizzaframe, text='Gourmet Pizzas').grid(row=5, column=0, columnspan=2)
-
-dragons_button = Button(pizzaframe, text='').grid(row=6, column=0)
-shabang_button = Button(pizzaframe, text='').grid(row=6, column=1)
-smoko_button = Button(pizzaframe, text='').grid(row=7, column=0)
-vegan_plus_button = Button(pizzaframe, text='').grid(row=7, column=1)
-vegetarian_button = Button(pizzaframe, text='').grid(row=8, column=0)
+dragons_button = Button(pizzaframe, text='').grid(row=7, column=0)
+shabang_button = Button(pizzaframe, text='').grid(row=7, column=1)
+smoko_button = Button(pizzaframe, text='').grid(row=8, column=0)
+vegan_plus_button = Button(pizzaframe, text='').grid(row=8, column=1)
+vegetarian_button = Button(pizzaframe, text='').grid(row=9, column=0, columnspan=2)
 
 #pizza toppings
 cheesecheck = Checkbutton(ingredientframe, text='Grated cheese', onvalue=1, offvalue=0).grid(row=0, column=0)
