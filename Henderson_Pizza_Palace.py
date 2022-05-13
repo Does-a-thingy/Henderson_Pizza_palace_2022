@@ -23,7 +23,7 @@ labeltexts = ['Would you like delivery or pick up?', 'What name is this order un
 button1texts = ['Delivery', '']
 button2texts = ['Pick up', '']
 entry_labels = ['Name:', 'Address:', 'Phone number:', '']
-pizzas_and_toppings = [['None', 'Classic cheese', 'Pineapple island', 'Multitudinal of meat', 'Mushroom and meats', 'Vegan mix', 'BBQ spice', 'Crunchy chick salad'], ['Dragons delight', 'The whole shabang', 'saturday night smoko', 'Vegan majestic composite', "Vegetarian's exspansive collation"], ['grated cheese', 'pineapple', 'ham', 'sliced mushroom', 'olives', 'spinich', 'sliced onion', 'grated carrot', 'grated vegan cheese', 'sliced jalapenos', 'diced carolina reapers', 'crunchy chicken pieces']]
+pizzas_and_toppings = [['None', 'Classic cheese', 'Pineapple island', 'Multitudinal of meat', 'Mushroom and meats', 'Vegan mix', 'BBQ spice', 'Crunchy chick salad', 'Crunchy chick island'], ['Dragons delight', 'The whole shabang', 'saturday night smoko', 'Vegan majestic composite', "Vegetarian's exspansive collation"], ['grated cheese', 'pineapple', 'ham', 'sliced mushroom', 'olives', 'spinich', 'sliced onion', 'grated carrot', 'grated vegan cheese', 'sliced jalapenos', 'diced carolina reapers', 'crunchy chicken pieces']]
 
 #set up text variables
 delvorpick = StringVar()
@@ -82,8 +82,14 @@ def update_window():
             grid_widget(side_address, 2, 1)
             grid_widget(sidephonepre, 3)
             grid_widget(side_phone, 3, 1)
+        grid_widget(pizzaframe)
     elif part == 3:
         print('Third')
+        update_details(part)
+        hide_widget(pizzaframe)
+        grid_widget(ingredientframe)
+        part = 1
+
 
 def delivery_command():
     #so that I can update delivery and not if it is pick up
@@ -99,6 +105,8 @@ def update_details(x):
         details['name'] = entered.get()
         details['address'] = Addressed.get()
         details['phone'] = Phoned.get()
+    elif x == 2:
+        print('chaos')
 
 def hide_widget(widget):
     widget.grid_forget()
@@ -164,26 +172,28 @@ sidephonepre = Label(sideframe, text='Phone Number: ')
 side_phone = Label(sideframe, textvariable=Phoned)
 
 #pizza preset options - 14 pizzas, 1 blank, 8 reg, 5 gorm
-none_button = Button(pizzaframe, text='None').grid(row=0, column=0)
 
-Regual_label = Button(pizzaframe, text='Regual pizza').grid(row=1, column=0, columnspan=2)
+none_button = Button(pizzaframe, text='None').grid(row=0, column=0, columnspan=2, padx=5, pady=5, sticky='WE')
 
-cheese_button = Button(pizzaframe, text='').grid(row=2, column=0)
-hawaii_button = Button(pizzaframe, text='').grid(row=2, column=1)
-meat_button = Button(pizzaframe, text='').grid(row=3, column=0)
-mushroom_button = Button(pizzaframe, text='').grid(row=3, column=1)
-vegan_button = Button(pizzaframe, text='').grid(row=4, column=0)
-BBQ_button = Button(pizzaframe, text='').grid(row=4, column=1)
-chick_button = Button(pizzaframe, text='').grid(row=5, column=0)
-chick_hawaii_button = Button(pizzaframe, text='').grid(row=5, column=1)
+Regual_label = Label(pizzaframe, text='Regual pizza').grid(row=1, column=0, columnspan=2, padx=5, pady=5, sticky='WE')
 
-Gourmet_label = Label(pizzaframe, text='Gourmet Pizzas').grid(row=6, column=0, columnspan=2)
+cheesepizza = PhotoImage(file="pizza's_pngs\cheesepizza.png")
+cheese_button = Button(pizzaframe, text='Classic cheese', image=cheesepizza).grid(row=2, column=0, padx=5, pady=5, sticky='WE')
+hawaii_button = Button(pizzaframe, text='Pineapple island').grid(row=2, column=1, padx=5, pady=5, sticky='WE')
+meat_button = Button(pizzaframe, text='Multitudinal of meat').grid(row=3, column=0, padx=5, pady=5, sticky='WE')
+mushroom_button = Button(pizzaframe, text='Mushroom and meats').grid(row=3, column=1, padx=5, pady=5, sticky='WE')
+vegan_button = Button(pizzaframe, text='Vegan mix').grid(row=4, column=0, padx=5, pady=5, sticky='WE')
+BBQ_button = Button(pizzaframe, text='BBQ spice').grid(row=4, column=1, padx=5, pady=5, sticky='WE')
+chick_button = Button(pizzaframe, text='Crunchy chick salad').grid(row=5, column=0, padx=5, pady=5, sticky='WE')
+chick_hawaii_button = Button(pizzaframe, text='Crunchy chick island').grid(row=5, column=1, padx=5, pady=5, sticky='WE')
 
-dragons_button = Button(pizzaframe, text='').grid(row=7, column=0)
-shabang_button = Button(pizzaframe, text='').grid(row=7, column=1)
-smoko_button = Button(pizzaframe, text='').grid(row=8, column=0)
-vegan_plus_button = Button(pizzaframe, text='').grid(row=8, column=1)
-vegetarian_button = Button(pizzaframe, text='').grid(row=9, column=0, columnspan=2)
+Gourmet_label = Label(pizzaframe, text='Gourmet Pizzas').grid(row=6, column=0, columnspan=2, padx=5, pady=5, sticky='WE')
+
+dragons_button = Button(pizzaframe, text='Dragons delight').grid(row=7, column=0, padx=5, pady=5, sticky='WE')
+shabang_button = Button(pizzaframe, text='The whole shabang').grid(row=7, column=1, padx=5, pady=5, sticky='WE')
+smoko_button = Button(pizzaframe, text='saturday night smoko').grid(row=8, column=0, padx=5, pady=5, sticky='WE')
+vegan_plus_button = Button(pizzaframe, text='Vegan majestic composite').grid(row=8, column=1, padx=5, pady=5, sticky='WE')
+vegetarian_button = Button(pizzaframe, text="Vegetarian's exspansive collation").grid(row=9, column=0, columnspan=2, padx=5, pady=5, sticky='WE')
 
 #pizza toppings
 cheesecheck = Checkbutton(ingredientframe, text='Grated cheese', onvalue=1, offvalue=0).grid(row=0, column=0)
