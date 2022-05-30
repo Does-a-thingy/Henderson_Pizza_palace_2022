@@ -172,27 +172,49 @@ sidephonepre = Label(sideframe, text='Phone Number: ')
 side_phone = Label(sideframe, textvariable=Phoned)
 
 #pizza preset options - 14 pizzas, 1 blank, 8 reg, 5 gorm
-
-none_button = Button(pizzaframe, text='None').grid(row=0, column=0, columnspan=2, padx=5, pady=5, sticky='WE')
+noneimage = PhotoImage(file="pizza's_pngs\Blank.png").subsample(7,7)
+none_button = Button(pizzaframe, text='None', image=noneimage, compound=TOP).grid(row=0, column=0, columnspan=2, padx=5, pady=5, sticky='WE')
 
 Regual_label = Label(pizzaframe, text='Regual pizza').grid(row=1, column=0, columnspan=2, padx=5, pady=5, sticky='WE')
 
-cheesepizza = PhotoImage(file="pizza's_pngs\cheesepizza.png").subsample(5,5)
-cheese_button = Button(pizzaframe, text='Classic cheese', image=cheesepizza).grid(row=2, column=0, padx=5, pady=5, sticky='WE')
-hawaii_button = Button(pizzaframe, text='Pineapple island').grid(row=2, column=1, padx=5, pady=5, sticky='WE')
-meat_button = Button(pizzaframe, text='Multitudinal of meat').grid(row=3, column=0, padx=5, pady=5, sticky='WE')
-mushroom_button = Button(pizzaframe, text='Mushroom and meats').grid(row=3, column=1, padx=5, pady=5, sticky='WE')
-vegan_button = Button(pizzaframe, text='Vegan mix').grid(row=4, column=0, padx=5, pady=5, sticky='WE')
-BBQ_button = Button(pizzaframe, text='BBQ spice').grid(row=4, column=1, padx=5, pady=5, sticky='WE')
+cheesepizza = PhotoImage(file="pizza's_pngs\cheesepizza.png").subsample(7,7)
+cheese_button = Button(pizzaframe, text='Classic cheese', image=cheesepizza, compound=TOP).grid(row=2, column=0, padx=5, pady=5, sticky='WE')
+
+hawaiiimage = PhotoImage(file="pizza's_pngs\pineapple_pizza.png").subsample(7,7)
+hawaii_button = Button(pizzaframe, text='Pineapple island', image=hawaiiimage, compound=TOP).grid(row=2, column=1, padx=5, pady=5, sticky='WE')
+
+meatimage = PhotoImage(file="pizza's_pngs\multi_meat_pizza.png").subsample(7,7)
+meat_button = Button(pizzaframe, text='Multitudinal of meat', image=meatimage, compound=TOP).grid(row=3, column=0, padx=5, pady=5, sticky='WE')
+
+mushyimage = PhotoImage(file="pizza's_pngs\mushroom_meat_pizza.png").subsample(7,7)
+mushroom_button = Button(pizzaframe, text='Mushroom and meats', image=mushyimage, compound=TOP).grid(row=3, column=1, padx=5, pady=5, sticky='WE')
+
+veganimage = PhotoImage(file="pizza's_pngs\minor_vegan_pizza.png").subsample(7,7)
+vegan_button = Button(pizzaframe, text='Vegan mix', image=veganimage, compound=TOP).grid(row=4, column=0, padx=5, pady=5, sticky='WE')
+
+BBQimage = PhotoImage(file="pizza's_pngs\spicy_BBQ_pizza.png").subsample(7,7)
+BBQ_button = Button(pizzaframe, text='BBQ spice', image=BBQimage, compound=TOP).grid(row=4, column=1, padx=5, pady=5, sticky='WE')
+
+chickimage = PhotoImage(file="pizza's_pngs\_pizza.png").subsample(7,7)
 chick_button = Button(pizzaframe, text='Crunchy chick salad').grid(row=5, column=0, padx=5, pady=5, sticky='WE')
+
 chick_hawaii_button = Button(pizzaframe, text='Crunchy chick island').grid(row=5, column=1, padx=5, pady=5, sticky='WE')
 
 Gourmet_label = Label(pizzaframe, text='Gourmet Pizzas').grid(row=6, column=0, columnspan=2, padx=5, pady=5, sticky='WE')
 
+dragonimage = PhotoImage(file="pizza's_pngs\Dragon_pizza.png").subsample(7,7)
 dragons_button = Button(pizzaframe, text='Dragons delight').grid(row=7, column=0, padx=5, pady=5, sticky='WE')
+
+shabangimage = PhotoImage(file="pizza's_pngs\whole_shabang.png").subsample(7,7)
 shabang_button = Button(pizzaframe, text='The whole shabang').grid(row=7, column=1, padx=5, pady=5, sticky='WE')
+
+smokoimage = PhotoImage(file="pizza's_pngs\smoko_pizza.png").subsample(7,7)
 smoko_button = Button(pizzaframe, text='saturday night smoko').grid(row=8, column=0, padx=5, pady=5, sticky='WE')
+
+Veganimage = PhotoImage(file="pizza's_pngs\vegan_major_pizza.png").subsample(7,7)
 vegan_plus_button = Button(pizzaframe, text='Vegan majestic composite').grid(row=8, column=1, padx=5, pady=5, sticky='WE')
+
+veggieimage = PhotoImage(file="pizza's_pngs\veggie_pizza.png").subsample(7,7)
 vegetarian_button = Button(pizzaframe, text="Vegetarian's exspansive collation").grid(row=9, column=0, columnspan=2, padx=5, pady=5, sticky='WE')
 
 #pizza toppings
