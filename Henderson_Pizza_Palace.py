@@ -196,10 +196,10 @@ vegan_button = Button(pizzaframe, text='Vegan mix', image=veganimage, compound=T
 BBQimage = PhotoImage(file="pizza's_pngs\spicy_BBQ_pizza.png").subsample(7,7)
 BBQ_button = Button(pizzaframe, text='BBQ spice', image=BBQimage, compound=TOP).grid(row=4, column=1, padx=5, pady=5, sticky='WE')
 
-#chickimage = PhotoImage(file="pizza's_pngs\_pizza.png").subsample(7,7)
-#chick_button = Button(pizzaframe, text='Crunchy chick salad').grid(row=5, column=0, padx=5, pady=5, sticky='WE')
-
-chick_hawaii_button = Button(pizzaframe, text='Crunchy chick island').grid(row=5, column=1, padx=5, pady=5, sticky='WE')
+chickimage = PhotoImage(file="pizza's_pngs\crunchy_chick.png").subsample(7,7)
+chick_button = Button(pizzaframe, text='Crunchy chick salad').grid(row=5, column=0, padx=5, pady=5, sticky='WE')
+chickpineimage = PhotoImage(file="pizza's_pngs\crunch_chick_pineapple.png").subsample(7,7)
+chick_hawaii_button = Button(pizzaframe, text='Crunchy chick island', image=chickpineimage).grid(row=5, column=1, padx=5, pady=5, sticky='WE')
 
 Gourmet_label = Label(pizzaframe, text='Gourmet Pizzas').grid(row=6, column=0, columnspan=2, padx=5, pady=5, sticky='WE')
 
