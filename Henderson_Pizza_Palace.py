@@ -204,19 +204,19 @@ chick_hawaii_button = Button(pizzaframe, text='Crunchy chick island', image=chic
 Gourmet_label = Label(pizzaframe, text='Gourmet Pizzas').grid(row=6, column=0, columnspan=2, padx=5, pady=5, sticky='WE')
 
 dragonimage = PhotoImage(file="pizza's_pngs\Dragon_pizza.png").subsample(7,7)
-dragons_button = Button(pizzaframe, text='Dragons delight').grid(row=7, column=0, padx=5, pady=5, sticky='WE')
+dragons_button = Button(pizzaframe, text='Dragons delight', image=chickpineimage).grid(row=7, column=0, padx=5, pady=5, sticky='WE')
 
 shabangimage = PhotoImage(file="pizza's_pngs\whole_shabang.png").subsample(7,7)
-shabang_button = Button(pizzaframe, text='The whole shabang').grid(row=7, column=1, padx=5, pady=5, sticky='WE')
+shabang_button = Button(pizzaframe, text='The whole shabang', image=chickpineimage).grid(row=7, column=1, padx=5, pady=5, sticky='WE')
 
 smokoimage = PhotoImage(file="pizza's_pngs\smoko_pizza.png").subsample(7,7)
-smoko_button = Button(pizzaframe, text='saturday night smoko').grid(row=8, column=0, padx=5, pady=5, sticky='WE')
+smoko_button = Button(pizzaframe, text='saturday night smoko', image=chickpineimage).grid(row=8, column=0, padx=5, pady=5, sticky='WE')
 
 Veganimage = PhotoImage(file="pizza's_pngs\Vegan_major_pizza.png").subsample(7,7)
-vegan_plus_button = Button(pizzaframe, text='Vegan majestic composite').grid(row=8, column=1, padx=5, pady=5, sticky='WE')
+vegan_plus_button = Button(pizzaframe, text='Vegan majestic composite', image=chickpineimage).grid(row=8, column=1, padx=5, pady=5, sticky='WE')
 
 veggieimage = PhotoImage(file="pizza's_pngs\Veggie_pizza.png").subsample(7,7)
-vegetarian_button = Button(pizzaframe, text="Vegetarian's exspansive collation").grid(row=9, column=0, columnspan=2, padx=5, pady=5, sticky='WE')
+vegetarian_button = Button(pizzaframe, text="Vegetarian's exspansive collation", image=chickpineimage).grid(row=9, column=0, columnspan=2, padx=5, pady=5, sticky='WE')
 
 #pizza toppings
 cheesecheck = Checkbutton(ingredientframe, text='Grated cheese', onvalue=1, offvalue=0).grid(row=0, column=0)
