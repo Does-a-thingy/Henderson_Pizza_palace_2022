@@ -7,7 +7,8 @@ details = {'delivery': False, 'name': 'Oliver', 'address': 'No where', 'phone': 
 
 #set up the tk variables
 window = Tk()
-window.attributes('-fullscreen',True)
+window.geometry('1000x1000')
+window.state('zoomed')
 window.title('Henderson Pizza Place')
 
 leftside = Frame(window, relief="sunken", borderwidth=3)
