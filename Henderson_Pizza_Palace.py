@@ -7,7 +7,7 @@ details = {'delivery': False, 'name': 'Oliver', 'address': 'No where', 'phone': 
 
 #set up the tk variables
 window = Tk()
-window.geometry("700x500")
+window.attributes('-fullscreen',True)
 window.title('Henderson Pizza Place')
 
 leftside = Frame(window, relief="sunken", borderwidth=3)
@@ -195,8 +195,8 @@ vegan_button = Button(pizzaframe, text='Vegan mix', image=veganimage, compound=T
 BBQimage = PhotoImage(file="pizza's_pngs\spicy_BBQ_pizza.png").subsample(7,7)
 BBQ_button = Button(pizzaframe, text='BBQ spice', image=BBQimage, compound=TOP).grid(row=4, column=1, padx=5, pady=5, sticky='WE')
 
-chickimage = PhotoImage(file="pizza's_pngs\_pizza.png").subsample(7,7)
-chick_button = Button(pizzaframe, text='Crunchy chick salad').grid(row=5, column=0, padx=5, pady=5, sticky='WE')
+#chickimage = PhotoImage(file="pizza's_pngs\_pizza.png").subsample(7,7)
+#chick_button = Button(pizzaframe, text='Crunchy chick salad').grid(row=5, column=0, padx=5, pady=5, sticky='WE')
 
 chick_hawaii_button = Button(pizzaframe, text='Crunchy chick island').grid(row=5, column=1, padx=5, pady=5, sticky='WE')
 
@@ -211,10 +211,10 @@ shabang_button = Button(pizzaframe, text='The whole shabang').grid(row=7, column
 smokoimage = PhotoImage(file="pizza's_pngs\smoko_pizza.png").subsample(7,7)
 smoko_button = Button(pizzaframe, text='saturday night smoko').grid(row=8, column=0, padx=5, pady=5, sticky='WE')
 
-Veganimage = PhotoImage(file="pizza's_pngs\vegan_major_pizza.png").subsample(7,7)
+Veganimage = PhotoImage(file="pizza's_pngs\Vegan_major_pizza.png").subsample(7,7)
 vegan_plus_button = Button(pizzaframe, text='Vegan majestic composite').grid(row=8, column=1, padx=5, pady=5, sticky='WE')
 
-veggieimage = PhotoImage(file="pizza's_pngs\veggie_pizza.png").subsample(7,7)
+veggieimage = PhotoImage(file="pizza's_pngs\Veggie_pizza.png").subsample(7,7)
 vegetarian_button = Button(pizzaframe, text="Vegetarian's exspansive collation").grid(row=9, column=0, columnspan=2, padx=5, pady=5, sticky='WE')
 
 #pizza toppings
