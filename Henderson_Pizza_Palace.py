@@ -113,7 +113,7 @@ def hide_widget(widget):
     widget.grid_forget()
 
 def grid_widget(widget, Row=0, Column=0, clmspn=1, x=10, y=3, stic='NSEW'):
-    widget.grid(row=Row, column=Column, columnspan=clmspn padx=x, pady=y, sticky=stic)
+    widget.grid(row=Row, column=Column, columnspan=clmspn, padx=x, pady=y, sticky=stic)
 
 #Start of set up for visual interactives
 grid_widget(leftside, y=10)
@@ -173,15 +173,17 @@ sidephonepre = Label(sideframe, text='Phone Number: ')
 side_phone = Label(sideframe, textvariable=Phoned)
 
 #pizza preset options - 14 pizzas, 1 blank, 8 reg, 5 gorm - and a scrollbar
-scroller = Scrollbar(pizzaframe, orient=VERTICAL)
-scroller.grid()
+scroller = Scrollbar(leftside, orient=VERTICAL, command=pizzaframe.yview)
+scroller.grid(row=1, column=3, rowspan=9, sticky='NS')
+
+pizzaframe['yscrollcommand'] = scroller.set
 
 noneimage = PhotoImage(file="pizza's_pngs\Blank.png").subsample(7,7)
 none_button = Button(pizzaframe, text='None', image=noneimage, compound=TOP)
 grid_widget(none_button)
 
 Regual_label = Label(pizzaframe, text='Regual pizza')
-grid_widget(Regual_label, Row=1, clnspn=2 x=5, y=5, stic='WE')
+grid_widget(Regual_label, Row=1, clmspn=2, x=5, y=5, stic='WE')
 
 cheesepizza = PhotoImage(file="pizza's_pngs\cheesepizza.png").subsample(7,7)
 cheese_button = Button(pizzaframe, text='Classic cheese', image=cheesepizza, compound=TOP)
@@ -219,20 +221,24 @@ Gourmet_label = Label(pizzaframe, text='Gourmet Pizzas')
 grid_widget(Gourmet_label, Row=6, clmspn=2, x=5, y=5, stic='WE')
 
 dragonimage = PhotoImage(file="pizza's_pngs\Dragon_pizza.png").subsample(7,7)
-dragons_button = Button(pizzaframe, text='Dragons delight', image=dragonimage).grid(row=7, column=0, padx=5, pady=5, sticky='WE')
+dragons_button = Button(pizzaframe, text='Dragons delight', image=dragonimage)
 grid_widget(dragons_button, Row=7, x=5, y=5, stic='WE')
 
 shabangimage = PhotoImage(file="pizza's_pngs\whole_shabang.png").subsample(7,7)
-shabang_button = Button(pizzaframe, text='The whole shabang', image=shabangimage).grid(row=7, column=1, padx=5, pady=5, sticky='WE')
+shabang_button = Button(pizzaframe, text='The whole shabang', image=shabangimage)
+grid_widget(shabang_button, Row=7, Column=1, x=5, y=5, stic='WE')
 
 smokoimage = PhotoImage(file="pizza's_pngs\smoko_pizza.png").subsample(7,7)
-smoko_button = Button(pizzaframe, text='saturday night smoko', image=smokoimage).grid(row=8, column=0, padx=5, pady=5, sticky='WE')
+smoko_button = Button(pizzaframe, text='saturday night smoko', image=smokoimage)
+grid_widget(smoko_button, Row=8, x=5, y=5, stic='WE')
 
 Veganimage = PhotoImage(file="pizza's_pngs\Vegan_major_pizza.png").subsample(7,7)
-vegan_plus_button = Button(pizzaframe, text='Vegan majestic composite', image=Veganimage).grid(row=8, column=1, padx=5, pady=5, sticky='WE')
+vegan_plus_button = Button(pizzaframe, text='Vegan majestic composite', image=Veganimage)
+grid_widget(vegan_plus_button, Row=8, Column=1, x=5, y=5, stic='WE')
 
 veggieimage = PhotoImage(file="pizza's_pngs\Veggie_pizza.png").subsample(7,7)
-vegetarian_button = Button(pizzaframe, text="Vegetarian's exspansive collation", image=veggieimage).grid(row=9, column=0, columnspan=2, padx=5, pady=5, sticky='WE')
+vegetarian_button = Button(pizzaframe, text="Vegetarian's exspansive collation", image=veggieimage)
+grid_widget(vegetarian_button, Row=9, clmspn=2, x=5, y=5, stic='WE')
 
 #pizza toppings
 cheesecheck = Checkbutton(ingredientframe, text='Grated cheese', onvalue=1, offvalue=0).grid(row=0, column=0)
