@@ -172,12 +172,7 @@ side_address = Label(sideframe, textvariable=Addressed)
 sidephonepre = Label(sideframe, text='Phone Number: ')
 side_phone = Label(sideframe, textvariable=Phoned)
 
-#pizza preset options - 14 pizzas, 1 blank, 8 reg, 5 gorm - and a scrollbar
-scroller = Scrollbar(leftside, orient=VERTICAL, command=pizzaframe.yview)
-scroller.grid(row=1, column=3, rowspan=9, sticky='NS')
-
-pizzaframe['yscrollcommand'] = scroller.set
-
+#pizza preset options - 14 pizzas, 1 blank, 8 reg, 5 gorm
 noneimage = PhotoImage(file="pizza's_pngs\Blank.png").subsample(7,7)
 none_button = Button(pizzaframe, text='None', image=noneimage, compound=TOP)
 grid_widget(none_button)
