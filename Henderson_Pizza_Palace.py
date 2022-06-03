@@ -3,7 +3,7 @@ from tkinter import *
 from tkinter.ttk import *
 
 #Dictionary to contain all of the information from the user
-details = {'delivery': False, 'name': 'Oliver', 'address': 'No where', 'phone': '0800', 'pizza1':'', 'pizza2':'', 'pizza3':'', 'pizza4':'', 'pizza5':'',}
+details = {'delivery': False, 'name': 'Oliver', 'address': 'No where', 'phone': '0800', 'pizza1':'', 'pizza2':'', 'pizza3':'', 'pizza4':'', 'pizza5':''}
 
 #set up the tk variables
 window = Tk()
@@ -20,11 +20,16 @@ pizzaframe = Frame(leftside)
 ingredientframe = Frame(leftside)
 
 #set up list variables
-labeltexts = ['Would you like delivery or pick up?', 'What name is this order under?', 'Where is this delivered to?', 'What is your Phone number?', 'What preset would you like to use?', 'FILLER1', 'FILLER2', 'FILLER3']
+labeltexts = ['Would you like delivery or pick up?', 'What name is this order under?', 'Where is this delivered to?', 'What is your Phone number?', 'What preset would you like to use?', 'ingredients']
 button1texts = ['Delivery', '']
 button2texts = ['Pick up', '']
 entry_labels = ['Name:', 'Address:', 'Phone number:', '']
-pizzas_and_toppings = [['None', 'Classic cheese', 'Pineapple island', 'Multitudinal of meat', 'Mushroom and meats', 'Vegan mix', 'BBQ spice', 'Crunchy chick salad', 'Crunchy chick island'], ['Dragons delight', 'The whole shabang', 'saturday night smoko', 'Vegan majestic composite', "Vegetarian's exspansive collation"], ['grated cheese', 'pineapple', 'ham', 'sliced mushroom', 'olives', 'spinich', 'sliced onion', 'grated carrot', 'grated vegan cheese', 'sliced jalapenos', 'diced carolina reapers', 'crunchy chicken pieces']]
+
+regualpizzas = ['None', 'Classic cheese', 'Pineapple island', 'Multitudinal of meat', 'Mushroom and meats', 'Vegan mix', 'BBQ spice', 'Crunchy chick salad', 'Crunchy chick island']
+
+gourmetpizzas = ['Dragons delight', 'The whole shabang', 'saturday night smoko', 'Vegan majestic composite', "Vegetarian's exspansive collation"]
+
+toppings = ['grated cheese', 'pineapple', 'ham', 'sliced mushroom', 'olives', 'spinich', 'sliced onion', 'grated carrot', 'grated vegan cheese', 'sliced jalapenos', 'diced carolina reapers', 'crunchy chicken pieces']
 
 #set up text variables
 delvorpick = StringVar()
@@ -119,12 +124,16 @@ def grid_widget(widget, Row=0, Column=0, clmspn=1, x=10, y=3, stic='NSEW'):
     widget.grid(row=Row, column=Column, columnspan=clmspn, padx=x, pady=y, sticky=stic)
 
 def cheesepizza_command():
+    global cheese
     cheese = 1
+    update_window()
 
 def hawaiipizza_command():
+    global cheese, pine, hame
     cheese = 1
     pine = 1
     hame = 1
+    update_window()
 
 #Start of set up for visual interactives
 grid_widget(leftside, y=10)
