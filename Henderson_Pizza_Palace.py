@@ -228,7 +228,7 @@ BBQimage = PhotoImage(file="pizza's_pngs\spicy_BBQ_pizza.png").subsample(7,7)
 BBQ_button = Button(pizzaframe, text='BBQ spice', image=BBQimage, compound=TOP, command=update_window)
 grid_widget(BBQ_button, Row=3, Column=2, x=5, y=5)
 
-chickimage = PhotoImage(file="pizza's_pngs\crunchy_chick.png").subsample(7,7)
+chickimage = PhotoImage(file="pizza's_pngs\crunchy_chick.png").subsample(2,2)
 chick_button = Button(pizzaframe, text='Crunchy chick salad', compound=TOP, command=update_window)
 grid_widget(chick_button, Row=4, x=5, y=5)
 
