@@ -108,12 +108,15 @@ def delivery_command():
 def update_details(x):
     global details
     if x == 0:
+        #runs after the delivery or pick up
         details['delivery'] = True
     elif x == 1:
+        #runs after the entry boxes
         details['name'] = entered.get()
         details['address'] = Addressed.get()
         details['phone'] = Phoned.get()
     elif x == 2:
+        #runs after the ingredients
         print('chaos')
 
 
@@ -259,26 +262,37 @@ grid_widget(vegetarian_button, Row=9, clmspn=2, x=5, y=5, stic='WE')
 #pizza toppings
 cheese = IntVar()
 cheesecheck = Checkbutton(ingredientframe, text='Grated cheese', variable=cheese, onvalue=1, offvalue=0).grid(row=0, column=0)
+
 vegan = IntVar()
 vegancheck = Checkbutton(ingredientframe, text='Grated vegan cheese', variable=vegan, onvalue=1, offvalue=0).grid(row=0, column=1)
+
 pine = IntVar()
 pinecheck = Checkbutton(ingredientframe, text='Pineapple', variable=pine, onvalue=1, offvalue=0).grid(row=1, column=0)
+
 hame = IntVar()
 hamcheck = Checkbutton(ingredientframe, text='Ham', variable=hame, onvalue=1, offvalue=0).grid(row=1, column=1)
+
 mush = IntVar()
 mushcheck = Checkbutton(ingredientframe, text='Sliced mushroom', variable=mush, onvalue=1, offvalue=0).grid(row=2, column=0)
+
 oliver = IntVar()
 olivecheck = Checkbutton(ingredientframe, text='Olives', variable=oliver, onvalue=1, offvalue=0).grid(row=2, column=1)
+
 spine = IntVar()
 spinecheck = Checkbutton(ingredientframe, text='Spinich', variable=spine, onvalue=1, offvalue=0).grid(row=3, column=0)
+
 onion = IntVar()
 onioncheck = Checkbutton(ingredientframe, text='sliced onion', variable=onion, onvalue=1, offvalue=0).grid(row=3, column=1)
+
 charrot = IntVar()
 carrotcheck = Checkbutton(ingredientframe, text='Grated carrot', variable=charrot, onvalue=1, offvalue=0).grid(row=4, column=0)
+
 jala = IntVar()
 jalacheck = Checkbutton(ingredientframe, text='Sliced jalapenos', variable=jala, onvalue=1, offvalue=0).grid(row=4, column=1)
+
 reap = IntVar()
 reapercheck = Checkbutton(ingredientframe, text='diced carolina reapers', variable=reap, onvalue=1, offvalue=0).grid(row=5, column=0)
+
 chick = IntVar()
 chickcheck = Checkbutton(ingredientframe, text='Crunchy chicken pieces', variable=chick, onvalue=1, offvalue=0).grid(row=5, column=1)
 
