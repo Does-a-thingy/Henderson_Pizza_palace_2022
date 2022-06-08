@@ -218,23 +218,23 @@ grid_widget(meat_button, Row=2, Column=2, x=5, y=5)
 
 mushyimage = PhotoImage(file="pizza's_pngs\mushroom_meat_pizza.png").subsample(7,7)
 mushroom_button = Button(pizzaframe, text='Mushroom and meats', image=mushyimage, compound=TOP, command=update_window)
-grid_widget(mushroom_button, Row=3, x=5, y=5)
+grid_widget(mushroom_button, Row=2, Column=3, x=5, y=5)
 
 veganimage = PhotoImage(file="pizza's_pngs\minor_vegan_pizza.png").subsample(5,5)
 vegan_button = Button(pizzaframe, text='Vegan mix', image=veganimage, compound=TOP, command=update_window)
-grid_widget(vegan_button, Row=3, Column=1, x=5, y=5)
+grid_widget(vegan_button, Row=3, x=5, y=5)
 
 BBQimage = PhotoImage(file="pizza's_pngs\spicy_BBQ_pizza.png").subsample(7,7)
 BBQ_button = Button(pizzaframe, text='BBQ spice', image=BBQimage, compound=TOP, command=update_window)
-grid_widget(BBQ_button, Row=3, Column=2, x=5, y=5)
+grid_widget(BBQ_button, Row=3, Column=1, x=5, y=5)
 
 chickimage = PhotoImage(file="pizza's_pngs\crunchy_chick.png").subsample(2,2)
 chick_button = Button(pizzaframe, text='Crunchy chick salad', compound=TOP, command=update_window)
-grid_widget(chick_button, Row=4, x=5, y=5)
+grid_widget(chick_button, Row=3, Column=2, x=5, y=5)
 
-chickpineimage = PhotoImage(file="pizza's_pngs\crunch_chick_pineapple.png").subsample(7,7)
+chickpineimage = PhotoImage(file="pizza's_pngs\crunch_chick_pineapple.png").subsample(3,3)
 chick_hawaii_button = Button(pizzaframe, text='Crunchy chick island', image=chickpineimage, compound=TOP, command=update_window)
-grid_widget(chick_hawaii_button, Row=4, Column=1, x=5, y=5)
+grid_widget(chick_hawaii_button, Row=3, Column=3, x=5, y=5)
 
 Gourmet_label = Label(pizzaframe, text='Gourmet Pizzas')
 grid_widget(Gourmet_label, Row=5, clmspn=3, x=5, y=5)
