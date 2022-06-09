@@ -27,7 +27,7 @@ entry_labels = ['Name:', 'Address:', 'Phone number:', '']
 
 pizzas = [['None', 'Classic cheese', 'Pineapple island', 'Multitudinal of meat', 'Mushroom and meats', 'Vegan mix', 'BBQ spice', 'Crunchy chick salad', 'Crunchy chick island'], ['Dragons delight', 'The whole shabang', 'saturday night smoko', 'Vegan majestic composite', "Vegetarian's exspansive collation"]]
 
-toppings = ['grated cheese', 'pineapple', 'ham', 'sliced mushroom', 'olives', 'spinich', 'sliced onion', 'grated carrot', 'grated vegan cheese', 'sliced jalapenos', 'diced carolina reapers', 'crunchy chicken pieces']
+toppings = ['grated cheese', 'pineapple', 'ham', 'sliced mushroom', 'olives', 'spinich', 'sliced onion', 'grated carrot', 'grated vegan cheese', 'sliced jalapenos', 'diced carolina reapers', 'crunchy chicken pieces', 'pepperoni', 'mini meat balls']
 
 #set up text variables
 delvorpick = StringVar()
@@ -128,7 +128,7 @@ def grid_widget(widget, Row=0, Column=0, clmspn=1, x=10, y=3, stic='NSEW'):
 def cheesepizza_command():
     global cheese, part
     cheese = 1
-    details['cheese'] = details['pizza1'].pop()
+    details['Classic Cheese'] = details['pizza1'].pop()
     update_window()
 
 def hawaiipizza_command():
@@ -136,9 +136,33 @@ def hawaiipizza_command():
     cheese = 1
     pine = 1
     hame = 1
+    details['Pineapple island'] = details['pizza1'].pop()
     update_window()
 
+def meatpizza_command():
+    global hame, mball, pepper, cheese
+    cheese = 1
+    hame = 1
+    mball = 1
+    pepper = 1
+    update_window()
 
+def mushpizza_command():
+    global mush, mball, pepper, cheese
+    cheese = 1
+    mush = 1
+    mball = 1
+    pepper = 1
+    update_window()
+
+def vegan_command():
+    global vegan, mush, charrot, spine
+    print('fuck, its a vegan')
+    vegan = 1
+    mush =1
+    charrot = 1
+    spine = 1
+    update_window()
 
 #Start of set up for visual interactives
 grid_widget(leftside, y=10)
@@ -215,7 +239,7 @@ hawaii_button = Button(pizzaframe, text='Pineapple island', image=hawaiiimage, c
 grid_widget(hawaii_button, Row=2, Column=1, x=5, y=5)
 
 meatimage = PhotoImage(file="pizza's_pngs\multi_meat_pizza.png").subsample(4,4)
-meat_button = Button(pizzaframe, text='Multitudinal of meat', image=meatimage, compound=TOP, command=update_window)
+meat_button = Button(pizzaframe, text='Multitudinal of meat', image=meatimage, compound=TOP, command=meatpizza_command)
 grid_widget(meat_button, Row=2, Column=2, x=5, y=5)
 
 mushyimage = PhotoImage(file="pizza's_pngs\mushroom_meat_pizza.png").subsample(8,8)
@@ -297,6 +321,12 @@ reapercheck = Checkbutton(ingredientframe, text='Diced carolina reapers', variab
 
 chick = IntVar()
 chickcheck = Checkbutton(ingredientframe, text='Crunchy chicken pieces', variable=chick, onvalue=1, offvalue=0).grid(row=5, column=1, padx=3, pady=3)
+
+pepper = IntVar()
+reapercheck = Checkbutton(ingredientframe, text='Pepperoni', variable=pepper, onvalue=1, offvalue=0).grid(row=6, column=0, padx=3, pady=3)
+
+mball = IntVar()
+chickcheck = Checkbutton(ingredientframe, text='Mini Meat Ball', variable=mball, onvalue=1, offvalue=0).grid(row=6, column=1, padx=3, pady=3)
 
 ingredient_confirm = Button(entryframe, text='Confirm', command=update_window)
 grid_widget(ingredient_confirm, Row=6, x=5, y=5)
