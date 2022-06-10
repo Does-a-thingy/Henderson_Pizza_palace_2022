@@ -157,12 +157,14 @@ def mushpizza_command():
 
 def vegan_command():
     global vegan, mush, charrot, spine
-    print('fuck, its a vegan')
     vegan = 1
     mush =1
     charrot = 1
     spine = 1
     update_window()
+
+def BBQ_command():
+    global cheese, hame, pepper,
 
 #Start of set up for visual interactives
 grid_widget(leftside, y=10)
@@ -243,11 +245,11 @@ meat_button = Button(pizzaframe, text='Multitudinal of meat', image=meatimage, c
 grid_widget(meat_button, Row=2, Column=2, x=5, y=5)
 
 mushyimage = PhotoImage(file="pizza's_pngs\mushroom_meat_pizza.png").subsample(8,8)
-mushroom_button = Button(pizzaframe, text='Mushroom and meats', image=mushyimage, compound=TOP, command=update_window)
+mushroom_button = Button(pizzaframe, text='Mushroom and meats', image=mushyimage, compound=TOP, command=mushpizza_command)
 grid_widget(mushroom_button, Row=2, Column=3, x=5, y=5)
 
 veganimage = PhotoImage(file="pizza's_pngs\minor_vegan_pizza.png").subsample(5,5)
-vegan_button = Button(pizzaframe, text='Vegan mix', image=veganimage, compound=TOP, command=update_window)
+vegan_button = Button(pizzaframe, text='Vegan mix', image=veganimage, compound=TOP, command=vegan_command)
 grid_widget(vegan_button, Row=3, x=5, y=5)
 
 BBQimage = PhotoImage(file="pizza's_pngs\spicy_BBQ_pizza.png").subsample(8,8)
