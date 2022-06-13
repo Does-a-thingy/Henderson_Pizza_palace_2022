@@ -27,7 +27,7 @@ entry_labels = ['Name:', 'Address:', 'Phone number:', '']
 
 pizzas = [['None', 'Classic cheese', 'Pineapple island', 'Multitudinal of meat', 'Mushroom and meats', 'Vegan mix', 'BBQ spice', 'Crunchy chick salad', 'Crunchy chick island'], ['Dragons delight', 'The whole shabang', 'saturday night smoko', 'Vegan majestic composite', "Vegetarian's exspansive collation"]]
 
-toppings = ['grated cheese', 'pineapple', 'ham', 'sliced mushroom', 'olives', 'spinich', 'sliced onion', 'grated carrot', 'grated vegan cheese', 'sliced jalapenos', 'diced carolina reapers', 'crunchy chicken pieces', 'pepperoni', 'mini meat balls']
+toppings = ['grated cheese', 'pineapple', 'ham', 'sliced mushroom', 'olives', 'spinich', 'sliced onion', 'grated carrot', 'grated vegan cheese', 'sliced jalapenos', 'diced carolina reapers', 'crunchy chicken pieces', 'pepperoni', 'mini meat balls', 'BBQ sauce', 'Pizza sauce']
 
 #set up text variables
 delvorpick = StringVar()
@@ -287,7 +287,13 @@ veggieimage = PhotoImage(file="pizza's_pngs\Veggie_pizza.png").subsample(4,4)
 vegetarian_button = Button(pizzaframe, text="Vegetarian's exspansive collation", image=veggieimage, compound=TOP, command=update_window)
 grid_widget(vegetarian_button, Row=7, Column=1, x=5, y=5)
 
-#pizza toppings
+#pizza toppings - Sauce and ingredients
+# Sauce
+sauce = IntVar()
+psaucerad = Radiobutton(ingredientframe, text='Pizza Sauce', variable=sauce, value=0)
+bsaucerad = Radiobutton(ingredientframe, text='BBQ Sauce', variable=sauce, value=1)
+
+# ingredients
 cheese = IntVar()
 cheesecheck = Checkbutton(ingredientframe, text='Grated cheese', variable=cheese, onvalue=1, offvalue=0).grid(row=0, column=0, padx=3, pady=3)
 
