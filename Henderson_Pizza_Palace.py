@@ -288,56 +288,67 @@ vegetarian_button = Button(pizzaframe, text="Vegetarian's exspansive collation",
 grid_widget(vegetarian_button, Row=7, Column=1, x=5, y=5)
 
 #pizza toppings - Sauce and ingredients
+
 # Sauce
+sauce_label = Label(ingredientframe, text='Sauce: ')
+grid_widget=(sauce_label, x=3, y=3)
+
 sauce = IntVar()
+
 psaucerad = Radiobutton(ingredientframe, text='Pizza Sauce', variable=sauce, value=0)
+grid_widget(psaucerad, Row=1, x=3, y=3)
 bsaucerad = Radiobutton(ingredientframe, text='BBQ Sauce', variable=sauce, value=1)
+grid_widget(bsaucerad, Row=1, column=1, x=3, y=3)
+
+# seperator
+gredientslab = Label(ingredientframe, text='ingredients: ')
+grid_widget(gredientslab, Row=2, clmspn=2, x=5, y=5)
 
 # ingredients
 cheese = IntVar()
-cheesecheck = Checkbutton(ingredientframe, text='Grated cheese', variable=cheese, onvalue=1, offvalue=0).grid(row=0, column=0, padx=3, pady=3)
+cheesecheck = Checkbutton(ingredientframe, text='Grated cheese', variable=cheese, onvalue=1, offvalue=0).grid(row=3, padx=3, pady=3)
 
 vegan = IntVar()
-vegancheck = Checkbutton(ingredientframe, text='Grated vegan cheese', variable=vegan, onvalue=1, offvalue=0).grid(row=0, column=1, padx=3, pady=3)
+vegancheck = Checkbutton(ingredientframe, text='Grated vegan cheese', variable=vegan, onvalue=1, offvalue=0).grid(row=3, column=1, padx=3, pady=3)
 
 pine = IntVar()
-pinecheck = Checkbutton(ingredientframe, text='Pineapple', variable=pine, onvalue=1, offvalue=0).grid(row=1, column=0, padx=3, pady=3)
+pinecheck = Checkbutton(ingredientframe, text='Pineapple', variable=pine, onvalue=1, offvalue=0).grid(row=4, padx=3, pady=3)
 
 hame = IntVar()
-hamcheck = Checkbutton(ingredientframe, text='Ham', variable=hame, onvalue=1, offvalue=0).grid(row=1, column=1, padx=3, pady=3)
+hamcheck = Checkbutton(ingredientframe, text='Ham', variable=hame, onvalue=1, offvalue=0).grid(row=4, column=1, padx=3, pady=3)
 
 mush = IntVar()
-mushcheck = Checkbutton(ingredientframe, text='Sliced mushroom', variable=mush, onvalue=1, offvalue=0).grid(row=2, column=0, padx=3, pady=3)
+mushcheck = Checkbutton(ingredientframe, text='Sliced mushroom', variable=mush, onvalue=1, offvalue=0).grid(row=5, padx=3, pady=3)
 
 oliver = IntVar()
-olivecheck = Checkbutton(ingredientframe, text='Olives', variable=oliver, onvalue=1, offvalue=0).grid(row=2, column=1, padx=3, pady=3)
+olivecheck = Checkbutton(ingredientframe, text='Olives', variable=oliver, onvalue=1, offvalue=0).grid(row=5, column=1, padx=3, pady=3)
 
 spine = IntVar()
-spinecheck = Checkbutton(ingredientframe, text='Spinich', variable=spine, onvalue=1, offvalue=0).grid(row=3, column=0, padx=3, pady=3)
+spinecheck = Checkbutton(ingredientframe, text='Spinich', variable=spine, onvalue=1, offvalue=0).grid(row=6, padx=3, pady=3)
 
 onion = IntVar()
-onioncheck = Checkbutton(ingredientframe, text='Sliced onion', variable=onion, onvalue=1, offvalue=0).grid(row=3, column=1, padx=3, pady=3)
+onioncheck = Checkbutton(ingredientframe, text='Sliced onion', variable=onion, onvalue=1, offvalue=0).grid(row=6, column=1, padx=3, pady=3)
 
 charrot = IntVar()
-carrotcheck = Checkbutton(ingredientframe, text='Grated carrot', variable=charrot, onvalue=1, offvalue=0).grid(row=4, column=0, padx=3, pady=3)
+carrotcheck = Checkbutton(ingredientframe, text='Grated carrot', variable=charrot, onvalue=1, offvalue=0).grid(row=7, column=0, padx=3, pady=3)
 
 jala = IntVar()
-jalacheck = Checkbutton(ingredientframe, text='Sliced jalapenos', variable=jala, onvalue=1, offvalue=0).grid(row=4, column=1, padx=3, pady=3)
+jalacheck = Checkbutton(ingredientframe, text='Sliced jalapenos', variable=jala, onvalue=1, offvalue=0).grid(row=7, column=1, padx=3, pady=3)
 
 reap = IntVar()
-reapercheck = Checkbutton(ingredientframe, text='Diced carolina reapers', variable=reap, onvalue=1, offvalue=0).grid(row=5, column=0, padx=3, pady=3)
+reapercheck = Checkbutton(ingredientframe, text='Diced carolina reapers', variable=reap, onvalue=1, offvalue=0).grid(row=8, column=0, padx=3, pady=3)
 
 chick = IntVar()
-chickcheck = Checkbutton(ingredientframe, text='Crunchy chicken pieces', variable=chick, onvalue=1, offvalue=0).grid(row=5, column=1, padx=3, pady=3)
+chickcheck = Checkbutton(ingredientframe, text='Crunchy chicken pieces', variable=chick, onvalue=1, offvalue=0).grid(row=8, column=1, padx=3, pady=3)
 
 pepper = IntVar()
-reapercheck = Checkbutton(ingredientframe, text='Pepperoni', variable=pepper, onvalue=1, offvalue=0).grid(row=6, column=0, padx=3, pady=3)
+reapercheck = Checkbutton(ingredientframe, text='Pepperoni', variable=pepper, onvalue=1, offvalue=0).grid(row=9, column=0, padx=3, pady=3)
 
 mball = IntVar()
-chickcheck = Checkbutton(ingredientframe, text='Mini Meat Ball', variable=mball, onvalue=1, offvalue=0).grid(row=6, column=1, padx=3, pady=3)
+chickcheck = Checkbutton(ingredientframe, text='Mini Meat Ball', variable=mball, onvalue=1, offvalue=0).grid(row=9, column=1, padx=3, pady=3)
 
-ingredient_confirm = Button(entryframe, text='Confirm', command=update_window)
-grid_widget(ingredient_confirm, Row=6, x=5, y=5)
+ingredient_confirm = Button(ingredientframe, text='Confirm', command=update_window)
+grid_widget(ingredient_confirm, Row=10, clmspn=2, x=5, y=5)
 
 #execute the set up
 window.mainloop()
