@@ -167,13 +167,14 @@ def vegan_command():
     update_window()
 
 def BBQ_command():
-    global cheese, hame, pepper, sauce, details
+    global cheese, hame, pepper, sauce, pizzaname
     cheese = 1
     hame = 1
     pepper = 1
     bsaucerad.invoke()
-    details["BBQ_Spice"] = details.pop(pizza1)
+    pizzaname = 'spicy BBQ'
     update_window()
+
 
 #Start of set up for visual interactives
 grid_widget(leftside, y=10)
