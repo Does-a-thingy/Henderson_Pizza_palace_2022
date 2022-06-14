@@ -176,6 +176,27 @@ def BBQ_command():
     pizzaname = 'spicy BBQ'
     update_window()
 
+def chicksal_command():
+    global cheese
+
+def chickpine_command():
+    global cheese
+
+def drag_command():
+    global cheese
+
+def shab_command():
+    global cheese
+
+def veganmaj_command():
+    global vegan
+
+def smoko_command():
+    global cheese
+
+def veggie_command():
+    global cheese, mush
+
 
 #Start of set up for visual interactives
 grid_widget(leftside, y=10)
@@ -268,34 +289,34 @@ BBQ_button = Button(pizzaframe, text='BBQ spice', image=BBQimage, compound=TOP, 
 grid_widget(BBQ_button, Row=3, Column=1, x=5, y=5)
 
 chickimage = PhotoImage(file="pizza's_pngs\crunchy_chick.png").subsample(4,4)
-chick_button = Button(pizzaframe, text='Crunchy chick salad', image=chickimage, compound=TOP, command=update_window)
+chick_button = Button(pizzaframe, text='Crunchy chick salad', image=chickimage, compound=TOP, command=chicksal_command)
 grid_widget(chick_button, Row=3, Column=2, x=5, y=5)
 
 chickpineimage = PhotoImage(file="pizza's_pngs\crunch_chick_pineapple.png").subsample(4,4)
-chick_hawaii_button = Button(pizzaframe, text='Crunchy chick island', image=chickpineimage, compound=TOP, command=update_window)
+chick_hawaii_button = Button(pizzaframe, text='Crunchy chick island', image=chickpineimage, compound=TOP, command=chickpine_command)
 grid_widget(chick_hawaii_button, Row=3, Column=3, x=5, y=5)
 
 Gourmet_label = Label(pizzaframe, text='Gourmet Pizzas')
 grid_widget(Gourmet_label, Row=5, clmspn=3, x=5, y=5)
 
 dragonimage = PhotoImage(file="pizza's_pngs\Dragon_pizza.png").subsample(3,3)
-dragons_button = Button(pizzaframe, text='Dragons delight', image=dragonimage, compound=TOP, command=update_window)
+dragons_button = Button(pizzaframe, text='Dragons delight', image=dragonimage, compound=TOP, command=drag_command)
 grid_widget(dragons_button, Row=6, x=5, y=5)
 
 shabangimage = PhotoImage(file="pizza's_pngs\whole_shabang.png").subsample(7,7)
-shabang_button = Button(pizzaframe, text='The whole shabang', image=shabangimage, compound=TOP, command=update_window)
+shabang_button = Button(pizzaframe, text='The whole shabang', image=shabangimage, compound=TOP, command=shab_command)
 grid_widget(shabang_button, Row=6, Column=1, x=5, y=5)
 
 Veganimage = PhotoImage(file="pizza's_pngs\Vegan_major_pizza.png").subsample(8,8)
-vegan_plus_button = Button(pizzaframe, text='Vegan majestic composite', image=Veganimage, compound=TOP, command=update_window)
+vegan_plus_button = Button(pizzaframe, text='Vegan majestic composite', image=Veganimage, compound=TOP, command=veganmaj_command)
 grid_widget(vegan_plus_button, Row=6, Column=2, x=5, y=5)
 
 smokoimage = PhotoImage(file="pizza's_pngs\smoko_pizza.png").subsample(12,12)
-smoko_button = Button(pizzaframe, text='saturday night smoko', image=smokoimage, compound=TOP, command=update_window)
+smoko_button = Button(pizzaframe, text='saturday night smoko', image=smokoimage, compound=TOP, command=smoko_command)
 grid_widget(smoko_button, Row=7, x=5, y=5)
 
 veggieimage = PhotoImage(file="pizza's_pngs\Veggie_pizza.png").subsample(4,4)
-vegetarian_button = Button(pizzaframe, text="Vegetarian's exspansive collation", image=veggieimage, compound=TOP, command=update_window)
+vegetarian_button = Button(pizzaframe, text="Vegetarian's exspansive collation", image=veggieimage, compound=TOP, command=veggie_command)
 grid_widget(vegetarian_button, Row=7, Column=1, x=5, y=5)
 
 #pizza toppings - Sauce and ingredients
