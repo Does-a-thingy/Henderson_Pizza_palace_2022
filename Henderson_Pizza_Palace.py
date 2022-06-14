@@ -52,6 +52,7 @@ phone_labels.set(entry_labels[2])
 #set up argument variables
 part = 0
 loopcheck = True
+pizzaname = ''
 
 # set up the functions
 def update_window():
@@ -128,7 +129,7 @@ def grid_widget(widget, Row=0, Column=0, clmspn=1, x=10, y=3, stic='NSEW'):
 def cheesepizza_command():
     global cheese, details
     cheese = 1
-    details["Classic Cheese"] = details.pop(pizza1)
+    pizzaname = 'Classic cheese'
     update_window()
 
 def hawaiipizza_command():
@@ -136,7 +137,7 @@ def hawaiipizza_command():
     cheese = 1
     pine = 1
     hame = 1
-    details["Pineapple island"] = details.pop(pizza1)
+    pizzaname = "Pineapple island"
     update_window()
 
 def meatpizza_command():
@@ -145,7 +146,7 @@ def meatpizza_command():
     hame = 1
     mball = 1
     pepper = 1
-    details["Multitudinal of meat"] = details.pop(pizza1)
+    pizzaname = "Multitudinal of meat"
     update_window()
 
 def mushpizza_command():
@@ -154,7 +155,7 @@ def mushpizza_command():
     mush = 1
     mball = 1
     pepper = 1
-    details["Mushroom and meat"] = details.pop(pizza1)
+    pizzaname = "Mushroom and meat"
     update_window()
 
 def vegan_command():
@@ -163,7 +164,7 @@ def vegan_command():
     mush =1
     charrot = 1
     spine = 1
-    details["Vegan mix"] = details.pop(pizza1)
+    pizzaname = "Vegan mix"
     update_window()
 
 def BBQ_command():
