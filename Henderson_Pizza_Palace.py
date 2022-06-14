@@ -127,50 +127,50 @@ def grid_widget(widget, Row=0, Column=0, clmspn=1, x=10, y=3, stic='NSEW'):
 
 def cheesepizza_command():
     global cheese, details
-    cheesecheck.invoke()
+    cheese = 1
     details["Classic Cheese"] = details.pop(pizza1)
     update_window()
 
 def hawaiipizza_command():
-    global cheesecheck, pinecheck, hamcheck, details
-    cheesecheck.invoke()
-    pinecheck.invoke()
-    hamcheck.invoke()
+    global cheese, pine, hame, details
+    cheese = 1
+    pine = 1
+    hame = 1
     details["Pineapple island"] = details.pop(pizza1)
     update_window()
 
 def meatpizza_command():
     global hame, mball, pepper, cheese, details
-    cheesecheck.invoke()
-    hamcheck.invoke()
-    mballcheck.invoke()
-    peppercheck.invoke()
+    cheese = 1
+    hame = 1
+    mball = 1
+    pepper = 1
     details["Multitudinal of meat"] = details.pop(pizza1)
     update_window()
 
 def mushpizza_command():
-    global details
-    cheesecheck.invoke()
-    mushcheck.invoke()
-    mballcheck.invoke()
-    peppercheck.invoke()
+    global mush, mball, pepper, cheese, details
+    cheese = 1
+    mush = 1
+    mball = 1
+    pepper = 1
     details["Mushroom and meat"] = details.pop(pizza1)
     update_window()
 
 def vegan_command():
-    global details
-    vegancheck.invoke()
-    mushcheck.invoke()
-    carrotcheck.invoke()
-    spinecheck.invoke()
+    global vegan, mush, charrot, spine, details
+    vegan = 1
+    mush =1
+    charrot = 1
+    spine = 1
     details["Vegan mix"] = details.pop(pizza1)
     update_window()
 
 def BBQ_command():
-    global details
-    cheesecheck.invoke()
-    hamcheck.invoke()
-    peppercheck.invoke()
+    global cheese, hame, pepper, sauce, details
+    cheese = 1
+    hame = 1
+    pepper = 1
     bsaucerad.invoke()
     details["BBQ_Spice"] = details.pop(pizza1)
     update_window()
