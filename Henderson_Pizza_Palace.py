@@ -127,51 +127,51 @@ def grid_widget(widget, Row=0, Column=0, clmspn=1, x=10, y=3, stic='NSEW'):
 
 def cheesepizza_command():
     global cheese, details
-    cheese = 1
+    cheesecheck.invoke()
     details["Classic Cheese"] = details.pop(pizza1)
     update_window()
 
 def hawaiipizza_command():
-    global cheese, pine, hame, details
-    cheese = 1
-    pine = 1
-    hame = 1
+    global cheesecheck, pinecheck, hamcheck, details
+    cheesecheck.invoke()
+    pinecheck.invoke()
+    hamcheck.invoke()
     details["Pineapple island"] = details.pop(pizza1)
     update_window()
 
 def meatpizza_command():
     global hame, mball, pepper, cheese, details
-    cheese = 1
-    hame = 1
-    mball = 1
-    pepper = 1
+    cheesecheck.invoke()
+    hamcheck.invoke()
+    mballcheck.invoke()
+    peppercheck.invoke()
     details["Multitudinal of meat"] = details.pop(pizza1)
     update_window()
 
 def mushpizza_command():
-    global mush, mball, pepper, cheese, details
-    cheese = 1
-    mush = 1
-    mball = 1
-    pepper = 1
+    global details
+    cheesecheck.invoke()
+    mushcheck.invoke()
+    mballcheck.invoke()
+    peppercheck.invoke()
     details["Mushroom and meat"] = details.pop(pizza1)
     update_window()
 
 def vegan_command():
-    global vegan, mush, charrot, spine, details
-    vegan = 1
-    mush =1
-    charrot = 1
-    spine = 1
+    global details
+    vegancheck.invoke()
+    mushcheck.invoke()
+    carrotcheck.invoke()
+    spinecheck.invoke()
     details["Vegan mix"] = details.pop(pizza1)
     update_window()
 
 def BBQ_command():
-    global cheese, hame, pepper, sauce, details
-    cheese = 1
-    hame = 1
-    pepper = 1
-    sauce = 1
+    global details
+    cheesecheck.invoke()
+    hamcheck.invoke()
+    peppercheck.invoke()
+    bsaucerad.invoke()
     details["BBQ_Spice"] = details.pop(pizza1)
     update_window()
 
@@ -351,10 +351,10 @@ chick = IntVar()
 chickcheck = Checkbutton(ingredientframe, text='Crunchy chicken pieces', variable=chick, onvalue=1, offvalue=0).grid(row=8, column=1, padx=3, pady=3)
 
 pepper = IntVar()
-reapercheck = Checkbutton(ingredientframe, text='Pepperoni', variable=pepper, onvalue=1, offvalue=0).grid(row=9, column=0, padx=3, pady=3)
+peppercheck = Checkbutton(ingredientframe, text='Pepperoni', variable=pepper, onvalue=1, offvalue=0).grid(row=9, column=0, padx=3, pady=3)
 
 mball = IntVar()
-chickcheck = Checkbutton(ingredientframe, text='Mini Meat Ball', variable=mball, onvalue=1, offvalue=0).grid(row=9, column=1, padx=3, pady=3)
+mballcheck = Checkbutton(ingredientframe, text='Mini Meat Ball', variable=mball, onvalue=1, offvalue=0).grid(row=9, column=1, padx=3, pady=3)
 
 ingredient_confirm = Button(ingredientframe, text='Confirm', command=update_window)
 grid_widget(ingredient_confirm, Row=10, clmspn=2, x=5, y=5)
