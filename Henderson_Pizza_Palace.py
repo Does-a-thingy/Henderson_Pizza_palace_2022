@@ -53,10 +53,11 @@ phone_labels.set(entry_labels[2])
 part = 0
 loopcheck = True
 pizzaname = ''
+loopcount = 1
 
 # set up the functions
 def update_window():
-    global part, loopcheck
+    global part, loopcheck, loopcount
     part += 1
     labelling1.set(labeltexts[part])
     if part == 1:
@@ -97,6 +98,7 @@ def update_window():
         grid_widget(ingredientframe)
         part = 1
         loopcheck = False
+        loopcount += 1
 
 def delivery_command():
     #so that I can update delivery and not if it is pick up
@@ -127,13 +129,13 @@ def grid_widget(widget, Row=0, Column=0, clmspn=1, x=10, y=3, stic='NSEW'):
 #Pizza Commands to transition to ingredients with presets.
 
 def cheesepizza_command():
-    global cheese, details
+    global cheese, pizzaname
     cheese = 1
     pizzaname = 'Classic cheese'
     update_window()
 
 def hawaiipizza_command():
-    global cheese, pine, hame, details
+    global cheese, pine, hame, pizzaname
     cheese = 1
     pine = 1
     hame = 1
@@ -141,7 +143,7 @@ def hawaiipizza_command():
     update_window()
 
 def meatpizza_command():
-    global hame, mball, pepper, cheese, details
+    global hame, mball, pepper, cheese, pizzaname
     cheese = 1
     hame = 1
     mball = 1
@@ -150,7 +152,7 @@ def meatpizza_command():
     update_window()
 
 def mushpizza_command():
-    global mush, mball, pepper, cheese, details
+    global mush, mball, pepper, cheese, pizzaname
     cheese = 1
     mush = 1
     mball = 1
@@ -159,7 +161,7 @@ def mushpizza_command():
     update_window()
 
 def vegan_command():
-    global vegan, mush, charrot, spine, details
+    global vegan, mush, charrot, spine, pizzaname
     vegan = 1
     mush =1
     charrot = 1
@@ -168,35 +170,99 @@ def vegan_command():
     update_window()
 
 def BBQ_command():
-    global cheese, hame, pepper, sauce, pizzaname
+    global cheese, hame, pepper, sauce, jala, pizzaname
     cheese = 1
     hame = 1
     pepper = 1
+    jala = 1
     bsaucerad.invoke()
     pizzaname = 'spicy BBQ'
     update_window()
 
 def chicksal_command():
-    global cheese
+    global cheese, chick, charrot, spine, pizzaname
+    cheese = 1
+    chick = 1
+    charrot = 1
+    spine = 1
+    pizzaname = 'Crunchy chick salad'
+    update_window()
 
 def chickpine_command():
-    global cheese
+    global cheese, chick, pine, pizzaname
+    cheese = 1
+    chick = 1
+    pine = 1
+    pizzaname = 'Crunchy chick island'
+    update_window()
 
 def drag_command():
-    global cheese
+    global cheese, jala, pepper, sauce, oliver, reap, pizzaname
+    cheese = 1
+    jala = 1
+    pepper = 1
+    oliver = 1
+    reap = 1
+    bsaucerad.invoke()
+    pizzaname = 'Dragons delight'
+    update_window()
 
 def shab_command():
-    global cheese
+    global cheese, hame, pepper, oliver, spine, pine, mush, mball, chick, onion, charrot, pizzaname
+    cheese = 1
+    hame = 1
+    pepper = 1
+    oliver = 1
+    spine = 1
+    pine = 1
+    mush = 1
+    mball = 1
+    chick = 1
+    onion = 1
+    charrot = 1
+    pizzaname = 'The whole Shabang'
+    update_window()
 
 def veganmaj_command():
-    global vegan
+    global vegan, oliver, spine, pine, mush, charrot, onion, jala, pizzaname
+    vegan = 1
+    oliver = 1
+    spine = 1
+    pine = 1
+    mush = 1
+    charrot = 1
+    onion = 1
+    jala = 1
+    pizzaname = 'Vegan majestic composite'
+    update_window()
 
 def smoko_command():
-    global cheese
+    global cheese, hame, oliver, charrot, jala, spine, pine, sauce, mball, pepper, pizzaname
+    cheese = 1
+    hame = 1
+    oliver = 1
+    charrot = 1
+    jala = 1
+    spine = 1
+    pine = 1
+    mball = 1
+    pepper = 1
+    bsaucerad.invoke()
+    pizzaname = 'saturday night smoko'
+    update_window()
 
 def veggie_command():
-    global cheese, mush
-
+    global cheese, mush, charrot, pine, oliver, spine, reap, onion, pizzaname
+    cheese = 1
+    mush = 1
+    charrot = 1
+    pine = 1
+    oliver = 1
+    spine = 1
+    reap = 1
+    onion = 1
+    pizzaname = "Vegetarian's exspansive collation"
+    update_window()
 
 #Start of set up for visual interactives
 grid_widget(leftside, y=10)
@@ -320,13 +386,11 @@ vegetarian_button = Button(pizzaframe, text="Vegetarian's exspansive collation",
 grid_widget(vegetarian_button, Row=7, Column=1, x=5, y=5)
 
 #pizza toppings - Sauce and ingredients
-
 # Sauce
 sauce_label = Label(ingredientframe, text='Sauce: ')
 grid_widget(sauce_label, x=3, y=3)
 
 sauce = IntVar()
-
 psaucerad = Radiobutton(ingredientframe, text='Pizza Sauce', variable=sauce, value=0)
 grid_widget(psaucerad, Row=1, x=3, y=3)
 bsaucerad = Radiobutton(ingredientframe, text='BBQ Sauce', variable=sauce, value=1)
