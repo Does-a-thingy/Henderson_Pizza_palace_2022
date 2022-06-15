@@ -50,11 +50,12 @@ address_labels.set(entry_labels[1])
 phone_labels = StringVar()
 phone_labels.set(entry_labels[2])
 
-#set up argument variables
+#set up python variables
 part = 0
 loopcheck = True
 pizzaname = ''
 loopcount = 0
+grandtot = 0
 
 # set up the functions
 def update_window():
@@ -104,7 +105,7 @@ def update_window():
                     grid_widget(side_order4, 7)
                 elif loopcount == 5:
                     grid_widget(side_order5, 8)
-                    grid_forget(sideframe)
+                    hide_widget(sideframe)
                     grid_widget(totalframe, y=10)
         elif part == 3:
             print('Third')
@@ -143,14 +144,37 @@ def grid_widget(widget, Row=0, Column=0, clmspn=1, x=10, y=3, stic='NSEW'):
     widget.grid(row=Row, column=Column, columnspan=clmspn, padx=x, pady=y, sticky=stic)
 
 def finish_command():
-    grid_forget(leftside)
+    hide_widget(leftside)
     grid_widget(totalframe, y=10)
 
 def cancel_command():
     window.destroy()
 
-#Pizza Commands to transition to ingredients with presets.
+def totaling():
+    global loopcount, grandtot, pizzaname
+    onpizza = ''
 
+    total.set(total.get() +8.50)
+    piiz = '\nCheese Supreme'
+    onpizza = f'{onpizza}{piiz}'
+
+    total.set(total.get() +0.50)
+    ham = '\nham'
+    onpizza = f'{onpizza}{ham}'
+
+    if x == 1:
+        piz1_total
+    elif x == 2:
+        piz2_total
+    elif x == 3:
+        piz3_total
+    elif x == 4:
+        piz4_total
+    elif x == 5:
+        piz5_total
+    grandtot = piz1_total + piz2_total + piz3_total + piz4_total + piz5_total
+
+#Pizza Commands to transition to ingredients with presets.
 def cheesepizza_command():
     global cheese, pizzaname
     cheese = 1
@@ -492,6 +516,13 @@ side_order4 = Label(sideframe, textvariable=order4)
 
 order5 = StringVar()
 side_order5 = Label(sideframe, textvariable=order5)
+
+# Total for each pizza + extras + grand total
+piz1_total = 0
+piz2_total = 0
+piz3_total = 0
+piz4_total = 0
+piz5_total = 0
 
 #execute the set up
 window.mainloop()
