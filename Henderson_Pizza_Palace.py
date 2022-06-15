@@ -161,7 +161,6 @@ def totaling():
     total.set(total.get() +0.50)
     ham = '\nham'
     onpizza = f'{onpizza}{ham}'
-
     if x == 1:
         piz1_total
     elif x == 2:
