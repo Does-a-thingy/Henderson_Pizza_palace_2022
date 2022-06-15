@@ -18,6 +18,7 @@ entryframe = Frame(leftside)
 sideframe = LabelFrame(window, text='Your Order:')
 pizzaframe = Frame(leftside)
 ingredientframe = Frame(leftside)
+totalframe = Frame(window)
 
 #set up list variables
 labeltexts = ['Would you like delivery or pick up?', 'What name is this order under?', 'Where is this delivered to?', 'What is your Phone number?', 'What preset would you like to use?', 'ingredients']
@@ -53,52 +54,67 @@ phone_labels.set(entry_labels[2])
 part = 0
 loopcheck = True
 pizzaname = ''
-loopcount = 1
+loopcount = 0
 
 # set up the functions
 def update_window():
     global part, loopcheck, loopcount
     part += 1
     labelling1.set(labeltexts[part])
-    if part == 1:
-        print('first')
-        hide_widget(deliveryframe)
-        grid_widget(entryframe, 1, 0, 10, 10)
-        if details['delivery'] == True:
-            delvorpick.set('Delivery')
-            grid_widget(label2, 1, 0, 10, 20)
-            grid_widget(address_label, 2, 0)
-            grid_widget(address_entry, 2, 1)
-            grid_widget(label3, 3, 0, 10, 20)
-            grid_widget(phone_label, 4, 0)
-            grid_widget(phonenumber_entry, 4, 1)
-        grid_widget(confirm_button, 5, 0, 10, 10)
-        hide_widget(blankspacer)
-        grid_widget(side_delivery, y = 10)
-    elif part == 2:
-        print('second')
-        update_details(part)
-        labelling1.set(labeltexts[4])
-        if loopcheck == True:
-            hide_widget(entryframe)
-            grid_widget(sidenamepre, 1)
-            grid_widget(side_name, 1, 1)
+    if loopcount < 5:
+        if part == 1:
+            print('first')
+            hide_widget(deliveryframe)
+            grid_widget(entryframe, 1, 0, 10, 10)
             if details['delivery'] == True:
-                grid_widget(sideaddresspre, 2)
-                grid_widget(side_address, 2, 1)
-                grid_widget(sidephonepre, 3)
-                grid_widget(side_phone, 3, 1)
-        elif loopcheck == False:
-            hide_widget(ingredientframe)
-        grid_widget(pizzaframe)
-    elif part == 3:
-        print('Third')
-        update_details(part)
-        hide_widget(pizzaframe)
-        grid_widget(ingredientframe)
-        part = 1
-        loopcheck = False
-        loopcount += 1
+                delvorpick.set('Delivery')
+                grid_widget(label2, 1, 0, 10, 20)
+                grid_widget(address_label, 2, 0)
+                grid_widget(address_entry, 2, 1)
+                grid_widget(label3, 3, 0, 10, 20)
+                grid_widget(phone_label, 4, 0)
+                grid_widget(phonenumber_entry, 4, 1)
+                grid_widget(confirm_button, 5, 0, 10, 10)
+                hide_widget(blankspacer)
+                grid_widget(side_delivery, y = 10)
+        elif part == 2:
+            print('second')
+            update_details(part)
+            labelling1.set(labeltexts[4])
+            if loopcheck == True:
+                hide_widget(entryframe)
+                grid_widget(sidenamepre, 1)
+                grid_widget(side_name, 1, 1)
+                if details['delivery'] == True:
+                    grid_widget(sideaddresspre, 2)
+                    grid_widget(side_address, 2, 1)
+                    grid_widget(sidephonepre, 3)
+                    grid_widget(side_phone, 3, 1)
+                grid_widget(pizzaframe)
+            elif loopcheck == False:
+                hide_widget(ingredientframe)
+                grid_widget(pizzaframe)
+                if loopcount == 1:
+                    grid_widget(side_order1, 4)
+                elif loopcount == 2:
+                    grid_widget(side_order2, 5)
+                elif loopcount == 3:
+                    grid_widget(side_order3, 6)
+                elif loopcount == 4:
+                    grid_widget(side_order4, 7)
+                elif loopcount == 5:
+                    grid_widget(side_order5, 8)
+                    grid_forget(sideframe)
+                    grid_widget(totalframe, y=10)
+        elif part == 3:
+            print('Third')
+            update_details(part)
+            hide_widget(pizzaframe)
+            grid_widget(ingredientframe)
+            part = 1
+            loopcheck = False
+            if loopcount < 5:
+                loopcount += 1
 
 def delivery_command():
     #so that I can update delivery and not if it is pick up
@@ -125,6 +141,13 @@ def hide_widget(widget):
 
 def grid_widget(widget, Row=0, Column=0, clmspn=1, x=10, y=3, stic='NSEW'):
     widget.grid(row=Row, column=Column, columnspan=clmspn, padx=x, pady=y, sticky=stic)
+
+def finish_command():
+    grid_forget(leftside)
+    grid_widget(totalframe, y=10)
+
+def cancel_command():
+    window.destroy()
 
 #Pizza Commands to transition to ingredients with presets.
 
@@ -270,6 +293,14 @@ grid_widget(top, y=10)
 grid_widget(deliveryframe, Row=1, y=10)
 sideframe.grid(row=0, column=1, columnspan= 2, padx=10, pady=10, sticky='NSEW')
 
+# cancel and finsh buttons
+finish_button = Button(sideframe, text='Finish', command=finish_command)
+grid_widget(finish_button, 9)
+
+cancel_button = Button(sideframe, text='Cancel', command=cancel_command)
+grid_widget(cancel_button, 10)
+
+#main label
 label1 = Label(top, textvariable = labelling1)
 label1.grid(row=0, column=0, padx=10, pady=3)
 
@@ -445,6 +476,22 @@ mballcheck = Checkbutton(ingredientframe, text='Mini Meat Ball', variable=mball,
 
 ingredient_confirm = Button(ingredientframe, text='Confirm', command=update_window)
 grid_widget(ingredient_confirm, Row=10, clmspn=2, x=5, y=5)
+
+# Order side label
+order1 = StringVar()
+side_order1 = Label(sideframe, textvariable=order1)
+
+order2 = StringVar()
+side_order2 = Label(sideframe, textvariable=order2)
+
+order3 = StringVar()
+side_order3 = Label(sideframe, textvariable=order3)
+
+order4 = StringVar()
+side_order4 = Label(sideframe, textvariable=order4)
+
+order5 = StringVar()
+side_order5 = Label(sideframe, textvariable=order5)
 
 #execute the set up
 window.mainloop()
