@@ -153,23 +153,27 @@ def cancel_command():
 def totaling():
     global loopcount, grandtot, pizzaname
     onpizza = ''
-
+    totloop = 1
+    total
     total.set(total.get() +8.50)
     piiz = '\nCheese Supreme'
     onpizza = f'{onpizza}{piiz}'
-
     total.set(total.get() +0.50)
     ham = '\nham'
     onpizza = f'{onpizza}{ham}'
-    if x == 1:
+    if loopcount >= 1 and totloop == 1:
         piz1_total
-    elif x == 2:
+        totloop += 1
+    elif loopcount >= 2 and totloop == 2:
         piz2_total
-    elif x == 3:
+        totloop += 1
+    elif loopcount >= 3 and totloop == 3:
         piz3_total
-    elif x == 4:
+        totloop += 1
+    elif loopcount >= 4 and totloop == 4:
         piz4_total
-    elif x == 5:
+        totloop += 1
+    elif loopcount == 5 and totloop == 5:
         piz5_total
     grandtot = piz1_total + piz2_total + piz3_total + piz4_total + piz5_total
 
