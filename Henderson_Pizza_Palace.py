@@ -56,6 +56,8 @@ loopcheck = True
 pizzaname = ''
 loopcount = 0
 grandtot = 0
+total = 0
+totloop = 1
 
 # set up the functions
 def update_window():
@@ -150,42 +152,39 @@ def finish_command():
 def cancel_command():
     window.destroy()
 
-def totaling():
-    global loopcount, grandtot, pizzaname
+def running_totaling():
+    global loopcount, piz1_total, piz2_total, piz3_total, piz4_total, piz5_total, total, totloop
     onpizza = ''
-    totloop = 1
-    total
-    total.set(total.get() +8.50)
-    piiz = '\nCheese Supreme'
-    onpizza = f'{onpizza}{piiz}'
-    total.set(total.get() +0.50)
-    ham = '\nham'
-    onpizza = f'{onpizza}{ham}'
     if loopcount >= 1 and totloop == 1:
-        piz1_total
+        piz1_total = total
         totloop += 1
     elif loopcount >= 2 and totloop == 2:
-        piz2_total
+        piz2_total = total
         totloop += 1
     elif loopcount >= 3 and totloop == 3:
-        piz3_total
+        piz3_total = total
         totloop += 1
     elif loopcount >= 4 and totloop == 4:
-        piz4_total
+        piz4_total = total
         totloop += 1
     elif loopcount == 5 and totloop == 5:
-        piz5_total
+        piz5_total = total
+
+def final_totaling():
+    global loopcount, grandtot, pizzaname, piz1_total, piz2_total, piz3_total, piz4_total, piz5_total, total, totloop
     grandtot = piz1_total + piz2_total + piz3_total + piz4_total + piz5_total
 
 #Pizza Commands to transition to ingredients with presets.
 def cheesepizza_command():
-    global cheese, pizzaname
+    global cheese, pizzaname, total
+    total = 7
     cheese = 1
     pizzaname = 'Classic cheese'
     update_window()
 
 def hawaiipizza_command():
-    global cheese, pine, hame, pizzaname
+    global cheese, pine, hame, pizzaname, total
+    total = 7
     cheese = 1
     pine = 1
     hame = 1
@@ -193,7 +192,8 @@ def hawaiipizza_command():
     update_window()
 
 def meatpizza_command():
-    global hame, mball, pepper, cheese, pizzaname
+    global hame, mball, pepper, cheese, pizzaname, total
+    total = 7
     cheese = 1
     hame = 1
     mball = 1
@@ -202,7 +202,8 @@ def meatpizza_command():
     update_window()
 
 def mushpizza_command():
-    global mush, mball, pepper, cheese, pizzaname
+    global mush, mball, pepper, cheese, pizzaname, total
+    total = 7
     cheese = 1
     mush = 1
     mball = 1
@@ -211,7 +212,8 @@ def mushpizza_command():
     update_window()
 
 def vegan_command():
-    global vegan, mush, charrot, spine, pizzaname
+    global vegan, mush, charrot, spine, pizzaname, total
+    total = 7
     vegan = 1
     mush =1
     charrot = 1
@@ -220,7 +222,8 @@ def vegan_command():
     update_window()
 
 def BBQ_command():
-    global cheese, hame, pepper, sauce, jala, pizzaname
+    global cheese, hame, pepper, sauce, jala, pizzaname, total
+    total = 7
     cheese = 1
     hame = 1
     pepper = 1
@@ -230,7 +233,8 @@ def BBQ_command():
     update_window()
 
 def chicksal_command():
-    global cheese, chick, charrot, spine, pizzaname
+    global cheese, chick, charrot, spine, pizzaname, total
+    total = 7
     cheese = 1
     chick = 1
     charrot = 1
@@ -239,7 +243,8 @@ def chicksal_command():
     update_window()
 
 def chickpine_command():
-    global cheese, chick, pine, pizzaname
+    global cheese, chick, pine, pizzaname, total
+    total = 7
     cheese = 1
     chick = 1
     pine = 1
@@ -247,7 +252,8 @@ def chickpine_command():
     update_window()
 
 def drag_command():
-    global cheese, jala, pepper, sauce, oliver, reap, pizzaname
+    global cheese, jala, pepper, sauce, oliver, reap, pizzaname, total
+    total = 8.5
     cheese = 1
     jala = 1
     pepper = 1
@@ -258,7 +264,8 @@ def drag_command():
     update_window()
 
 def shab_command():
-    global cheese, hame, pepper, oliver, spine, pine, mush, mball, chick, onion, charrot, pizzaname
+    global cheese, hame, pepper, oliver, spine, pine, mush, mball, chick, onion, charrot, pizzaname, total
+    total = 8.5
     cheese = 1
     hame = 1
     pepper = 1
@@ -274,7 +281,8 @@ def shab_command():
     update_window()
 
 def veganmaj_command():
-    global vegan, oliver, spine, pine, mush, charrot, onion, jala, pizzaname
+    global vegan, oliver, spine, pine, mush, charrot, onion, jala, pizzaname, total
+    total = 8.5
     vegan = 1
     oliver = 1
     spine = 1
@@ -287,7 +295,8 @@ def veganmaj_command():
     update_window()
 
 def smoko_command():
-    global cheese, hame, oliver, charrot, jala, spine, pine, sauce, mball, pepper, pizzaname
+    global cheese, hame, oliver, charrot, jala, spine, pine, sauce, mball, pepper, pizzaname, total
+    total = 8.5
     cheese = 1
     hame = 1
     oliver = 1
@@ -302,7 +311,8 @@ def smoko_command():
     update_window()
 
 def veggie_command():
-    global cheese, mush, charrot, pine, oliver, spine, reap, onion, pizzaname
+    global cheese, mush, charrot, pine, oliver, spine, reap, onion, pizzaname, total
+    total = 8.5
     cheese = 1
     mush = 1
     charrot = 1
@@ -521,11 +531,26 @@ order5 = StringVar()
 side_order5 = Label(sideframe, textvariable=order5)
 
 # Total for each pizza + extras + grand total
-piz1_total = 0
-piz2_total = 0
-piz3_total = 0
-piz4_total = 0
-piz5_total = 0
+piz1_total = IntVar()
+piz2_total = IntVar()
+piz3_total = IntVar()
+piz4_total = IntVar()
+piz5_total = IntVar()
+
+piz1_lab = Label(totalframe, textvariable=order1)
+grid_widget(piz1_lab, 1, y=10)
+
+piz2_lab = Label(totalframe, textvariable=order2)
+grid_widget(piz2_lab, 1, y=10)
+
+piz3_lab = Label(totalframe, textvariable=order3)
+grid_widget(piz3_lab, 1, y=10)
+
+piz4_lab = Label(totalframe, textvariable=order4)
+grid_widget(piz4_lab, 1, y=10)
+
+piz5_lab = Label(totalframe, textvariable=order5)
+grid_widget(piz5_lab, 1, y=10)
 
 #execute the set up
 window.mainloop()
