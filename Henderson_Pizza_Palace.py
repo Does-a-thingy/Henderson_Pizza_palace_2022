@@ -171,7 +171,7 @@ def running_totaling():
         piz5_total = total
 
 def final_totaling():
-    global loopcount, grandtot, pizzaname, piz1_total, piz2_total, piz3_total, piz4_total, piz5_total, total, totloop
+    global grandtot, pizzaname, piz1_total, piz2_total, piz3_total, piz4_total, piz5_total
     grandtot = piz1_total + piz2_total + piz3_total + piz4_total + piz5_total
 
 #Pizza Commands to transition to ingredients with presets.
